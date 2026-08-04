@@ -139,6 +139,27 @@ function AnimatedCounter({ target, suffix = "", duration = 1500 }: { target: num
   return <span ref={ref}>{value}{suffix}</span>;
 }
 
+function Star({ className }: { className: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="#FFDE00" aria-hidden="true">
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01z" />
+    </svg>
+  );
+}
+
+function ChinaWord() {
+  return (
+    <span className="relative inline-block text-[#DE2910] whitespace-nowrap">
+      China
+      <Star className="absolute -top-3 -left-3 w-4 h-4 sm:w-5 sm:h-5" />
+      <Star className="absolute -top-4 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-12" />
+      <Star className="absolute top-0 -right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-6" />
+      <Star className="absolute top-4 -right-3 w-2 h-2 sm:w-2.5 sm:h-2.5 -rotate-6" />
+      <Star className="absolute top-7 right-0 w-2 h-2 sm:w-2.5 sm:h-2.5 -rotate-12" />
+    </span>
+  );
+}
+
 function FloatingWhatsApp() {
   return (
     <a
@@ -348,7 +369,7 @@ function Index() {
             Assessoria completa em importação
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
-            Sua importação da <span className="text-gradient-gold">China</span> começa aqui.
+            Sua importação da <ChinaWord /> começa aqui.
           </h1>
           <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
             Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação, para empresas que querem importar com segurança e previsibilidade.
