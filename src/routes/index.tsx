@@ -151,11 +151,10 @@ function ChinaWord() {
   return (
     <span className="relative inline-block text-[#DE2910] whitespace-nowrap">
       China
-      <Star className="absolute -top-3 -left-3 w-4 h-4 sm:w-5 sm:h-5" />
-      <Star className="absolute -top-4 right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-12" />
-      <Star className="absolute top-0 -right-2 w-2 h-2 sm:w-2.5 sm:h-2.5 rotate-6" />
-      <Star className="absolute top-4 -right-3 w-2 h-2 sm:w-2.5 sm:h-2.5 -rotate-6" />
-      <Star className="absolute top-7 right-0 w-2 h-2 sm:w-2.5 sm:h-2.5 -rotate-12" />
+      <Star className="absolute top-[4%] left-[4%] w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
+      <Star className="absolute top-[2%] left-[24%] w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-12" />
+      <Star className="absolute top-[16%] left-[32%] w-1.5 h-1.5 sm:w-2 sm:h-2 rotate-6" />
+      <Star className="absolute top-[32%] left-[28%] w-1.5 h-1.5 sm:w-2 sm:h-2 -rotate-6" />
     </span>
   );
 }
