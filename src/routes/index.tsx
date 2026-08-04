@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import video1 from "@/assets/videos/video1.mp4.asset.json";
 import video2 from "@/assets/videos/video2.mp4.asset.json";
 import video3 from "@/assets/videos/video3.mp4.asset.json";
@@ -62,6 +62,13 @@ const SERVICES = [
   { img: "https://importacao4s.lovable.app/assets/service-customs-3iHe8vBX.jpg", title: "Seguro & Conformidade", desc: "Seguro de carga internacional e adequação fiscal e aduaneira para reduzir riscos da operação." },
 ];
 
+const STATS: { target: number; suffix: string; label: string }[] = [
+  { target: 20, suffix: "+", label: "Anos de experiência no comércio exterior" },
+  { target: 5, suffix: "+", label: "Grandes marcas atendidas" },
+  { target: 4, suffix: "", label: "Etapas do processo, do diagnóstico à entrega" },
+  { target: 100, suffix: "%", label: "Dentro da legislação aduaneira" },
+];
+
 const PRODUCTS = [
   { img: "https://importacao4s.lovable.app/assets/product-kitchen-B92Fsfwx.jpg", title: "Itens de Cozinha", desc: "Linha completa de utensílios e acessórios com excelente custo-benefício para o varejo." },
   { img: "https://importacao4s.lovable.app/assets/product-machinery-z3ctZ7Ix.jpg", title: "Maquinários", desc: "Equipamentos industriais para empresas que buscam ganho de produtividade." },
@@ -87,6 +94,63 @@ function getUTMs() {
     utm_term: sanitizeUTM(p.get("utm_term")),
     utm_content: sanitizeUTM(p.get("utm_content")),
   };
+}
+
+function useInView<T extends HTMLElement>(): [React.RefObject<T>, boolean] {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return [ref, inView];
+}
+
+function AnimatedCounter({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) {
+  const [ref, inView] = useInView<HTMLSpanElement>();
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (!inView) return;
+    let start: number | null = null;
+    let raf: number;
+    const step = (ts: number) => {
+      if (start === null) start = ts;
+      const progress = Math.min((ts - start) / duration, 1);
+      setValue(Math.floor(progress * target));
+      if (progress < 1) raf = requestAnimationFrame(step);
+      else setValue(target);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [inView, target, duration]);
+  return <span ref={ref}>{value}{suffix}</span>;
+}
+
+function FloatingWhatsApp() {
+  return (
+    <a
+      href="https://wa.me/5513991309727?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20importa%C3%A7%C3%A3o%20da%20China."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar no WhatsApp"
+      className="fixed bottom-5 right-5 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1DA851] shadow-lg shadow-black/30 transition-transform hover:scale-105"
+    >
+      <svg viewBox="0 0 32 32" className="w-7 h-7 fill-white" aria-hidden="true">
+        <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.34.653 4.527 1.789 6.393L4 29l7.828-1.744A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.7a9.63 9.63 0 0 1-4.917-1.35l-.353-.21-3.51.782.744-3.42-.23-.352A9.62 9.62 0 0 1 6.3 15c0-5.352 4.352-9.7 9.704-9.7 5.352 0 9.696 4.348 9.696 9.7 0 5.352-4.344 9.7-9.696 9.7zm5.317-7.264c-.29-.145-1.716-.847-1.982-.943-.267-.097-.462-.145-.656.145-.194.29-.75.943-.92 1.137-.17.194-.34.218-.63.073-.29-.145-1.223-.451-2.33-1.437-.861-.768-1.443-1.717-1.612-2.007-.17-.29-.018-.447.127-.592.13-.13.29-.34.435-.51.145-.17.194-.29.29-.484.097-.194.048-.363-.024-.508-.073-.145-.656-1.582-.9-2.166-.237-.567-.478-.49-.656-.5l-.559-.01c-.194 0-.508.073-.774.363-.267.29-1.017.994-1.017 2.424s1.041 2.812 1.186 3.006c.145.194 2.05 3.132 4.968 4.393.694.3 1.235.48 1.657.614.696.221 1.33.19 1.83.115.558-.083 1.716-.702 1.958-1.38.242-.678.242-1.259.17-1.38-.073-.121-.267-.194-.556-.34z" />
+      </svg>
+    </a>
+  );
 }
 
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
@@ -209,14 +273,66 @@ function Index() {
       </div>
 
 
+      {/* HERO */}
+      <section id="hero" className="relative pt-14 pb-10 sm:pt-20 sm:pb-14 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="https://importacao4s.lovable.app/assets/about-ship-AOM8hCww.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover opacity-25"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1331]/70 via-[#0E1331]/90 to-[#0E1331]" />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
+          <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-12 sm:h-14 w-auto mx-auto mb-6 rounded-xl" />
+          <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F96706]/30 rounded-full px-4 py-1.5 bg-[#F96706]/10">
+            Assessoria completa em importação
+          </span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
+            Sua importação da <span className="text-gradient-gold">China</span> começa aqui.
+          </h1>
+          <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+            Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação — para empresas que querem importar com segurança e previsibilidade.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={scrollToDiagnostico}
+              className="w-full sm:w-auto bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
+            >
+              Quero meu diagnóstico gratuito
+            </button>
+            <a
+              href="#servicos"
+              className="w-full sm:w-auto text-center border-2 border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg transition-colors"
+            >
+              Conheça nossos serviços
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="py-10 sm:py-14 border-y border-white/10 bg-white/[0.02]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+            {STATS.map((s) => (
+              <div key={s.label}>
+                <p className="text-3xl sm:text-4xl font-bold text-gradient-gold mb-1">
+                  <AnimatedCounter target={s.target} suffix={s.suffix} />
+                </p>
+                <p className="text-white/60 text-xs sm:text-sm leading-snug">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* LEAD FORM INLINE */}
       <section id="diagnostico" className="pt-10 pb-16 sm:pt-14 sm:pb-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-lg mx-auto mb-8 flex items-center justify-center gap-3 bg-[#0A1628] border border-white/10 rounded-2xl px-6 py-4">
-            <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-9 sm:h-11 w-auto shrink-0 rounded-xl" />
-            <h2 className="text-base sm:text-lg md:text-xl font-bold text-white leading-tight">
-              Sua importação da<br />China começa aqui.
-            </h2>
+          <div className="max-w-lg mx-auto mb-8 text-center">
+            <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">Preencha seus dados e agende seu diagnóstico gratuito</h2>
           </div>
           <div className="max-w-lg mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
             <form onSubmit={onInlineSubmit} className="space-y-4">
@@ -392,6 +508,22 @@ function Index() {
                 <p className="text-white/60 text-sm leading-relaxed">{d}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* URGENCY / CAPACITY */}
+      <section className="py-14 lg:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#F96706] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
+            <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Atendimento personalizado, com vagas limitadas por mês</h2>
+            <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
+              Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço — não um atendimento genérico.
+            </p>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
+              Quero garantir meu diagnóstico
+            </button>
           </div>
         </div>
       </section>
@@ -605,6 +737,8 @@ function Index() {
           </div>
         </div>
       )}
+
+      <FloatingWhatsApp />
     </div>
   );
 }
