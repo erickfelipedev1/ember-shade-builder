@@ -287,9 +287,9 @@ function Index() {
         }
         h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
         html { scroll-behavior: smooth; }
-        .text-gradient-gold { background: linear-gradient(135deg,#FF5252 0%,#F53131 50%,#C20000 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        .bg-gold-grad { background: linear-gradient(135deg,#F53131 0%,#C20000 100%); }
-        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(245,49,49,.45); }
+        .text-gradient-gold { background: linear-gradient(90deg,#d90611 0%,#f9754b 50%,#ff1724 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .bg-gold-grad { background: linear-gradient(90deg,#d90611 0%,#f9754b 50%,#ff1724 100%); }
+        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(249,117,75,.5); }
         @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
         .animate-marquee { animation: marquee 20s linear infinite; }
         @keyframes bounce-slow { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,6px)} }
@@ -314,7 +314,7 @@ function Index() {
           <div className="flex items-center gap-3">
             <button
               onClick={scrollToDiagnostico}
-              className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
             >
               Diagnóstico grátis
             </button>
@@ -376,7 +376,7 @@ function Index() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToDiagnostico}
-              className="w-full sm:w-auto bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
+              className="w-full sm:w-auto bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
             >
               Quero meu diagnóstico gratuito
             </button>
@@ -461,7 +461,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={inlineLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
+              <button type="submit" disabled={inlineLoading} className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
                 {inlineLoading ? "Enviando..." : "Enviar"}
               </button>
               {inlineStatus.kind !== "idle" && (
@@ -546,7 +546,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -570,7 +570,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -608,7 +608,7 @@ function Index() {
             <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
               Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço, não um atendimento genérico.
             </p>
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
               Quero garantir meu diagnóstico
             </button>
           </div>
@@ -635,7 +635,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -676,7 +676,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -720,7 +720,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -814,7 +814,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={modalLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
+              <button type="submit" disabled={modalLoading} className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
                 {modalLoading ? "Enviando..." : "QUERO MEU DIAGNÓSTICO"}
               </button>
               {modalStatus.kind !== "idle" && (
