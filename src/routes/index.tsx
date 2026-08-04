@@ -6,6 +6,8 @@ import video3 from "@/assets/videos/video3.mp4.asset.json";
 import video4 from "@/assets/videos/video4.mp4.asset.json";
 import video5 from "@/assets/videos/video5.mp4.asset.json";
 import video6 from "@/assets/videos/video6.mp4.asset.json";
+import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
+import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 
 
 
@@ -96,7 +98,7 @@ function getUTMs() {
   };
 }
 
-function useInView<T extends HTMLElement>(): [React.RefObject<T>, boolean] {
+function useInView<T extends HTMLElement>(): [React.RefObject<T | null>, boolean] {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
@@ -327,7 +329,8 @@ function Index() {
       <section id="hero" className="relative pt-28 pb-10 sm:pt-36 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <video
-            src="/hero-port-aerial.mp4"
+            src={heroVideo.url}
+            poster={heroPoster.url}
             autoPlay
             muted
             loop
