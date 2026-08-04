@@ -432,8 +432,7 @@ function Index() {
                 <Field label="WhatsApp" name="telefone" type="tel" placeholder="(00) 00000-0000" required />
                 <Field label="E-mail" name="email" type="email" placeholder="seu@email.com" required />
               </div>
-              <p className="text-[#FF5252] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5 pt-2">Sobre você</p>
-              <div>
+              <div className="pt-2">
                 <Label>Você possui CNPJ?</Label>
                 <DarkSelect name="cnpj" required>
                   <option value="">Selecione uma opção</option>
