@@ -20,6 +20,9 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Remotion render output
+remotion/out/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

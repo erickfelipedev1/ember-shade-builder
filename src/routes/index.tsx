@@ -276,13 +276,17 @@ function Index() {
       {/* HERO */}
       <section id="hero" className="relative pt-14 pb-10 sm:pt-20 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
-          <img
-            src="https://importacao4s.lovable.app/assets/about-ship-AOM8hCww.jpg"
-            alt=""
+          <video
+            src="/hero-cargo-loop.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
             aria-hidden="true"
-            className="w-full h-full object-cover opacity-25"
+            className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1331]/70 via-[#0E1331]/90 to-[#0E1331]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1331]/35 via-[#0E1331]/55 to-[#0E1331]" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
           <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-12 sm:h-14 w-auto mx-auto mb-6 rounded-xl" />
