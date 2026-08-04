@@ -98,7 +98,7 @@ function getUTMs() {
   };
 }
 
-function useInView<T extends HTMLElement>(): [React.RefObject<T>, boolean] {
+function useInView<T extends HTMLElement>(): [React.RefObject<T | null>, boolean] {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
