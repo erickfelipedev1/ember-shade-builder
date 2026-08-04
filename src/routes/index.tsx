@@ -327,7 +327,7 @@ function Index() {
       <section id="hero" className="relative pt-28 pb-10 sm:pt-36 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <video
-            src="/hero-cargo-loop.mp4"
+            src="/hero-port-aerial.mp4"
             autoPlay
             muted
             loop
