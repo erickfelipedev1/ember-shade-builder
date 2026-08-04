@@ -65,9 +65,9 @@ const SERVICES = [
 ];
 
 const STATS: { target: number; suffix: string; label: string }[] = [
-  { target: 20, suffix: "+", label: "Anos de experiência no comércio exterior" },
-  { target: 5, suffix: "+", label: "Grandes marcas atendidas" },
-  { target: 4, suffix: "", label: "Etapas do processo, do diagnóstico à entrega" },
+  { target: 30, suffix: "+", label: "Anos de experiência no comércio exterior" },
+  { target: 700, suffix: "+", label: "Empresas atendidas" },
+  { target: 5, suffix: "", label: "Estágios da nossa metodologia" },
   { target: 100, suffix: "%", label: "Dentro da legislação aduaneira" },
 ];
 
@@ -487,7 +487,7 @@ function Index() {
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">Mais do que uma assessoria: um parceiro operacional para a sua importação.</h2>
               <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
-                Com mais de 20 anos de experiência no comércio exterior brasileiro, a Jornada 4S conecta sua empresa aos melhores fornecedores da China e assume, na prática, a gestão da sua importação, da cotação ao desembaraço aduaneiro. Enquanto você foca no seu negócio, nossa equipe cuida de cada etapa da operação.
+                Com mais de 30 anos de experiência no comércio exterior brasileiro, a Jornada 4S conecta sua empresa aos melhores fornecedores da China e assume, na prática, a gestão da sua importação, da cotação ao desembaraço aduaneiro. Enquanto você foca no seu negócio, nossa equipe cuida de cada etapa da operação.
               </p>
               <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
@@ -875,17 +875,27 @@ const CLIENT_VIDEOS = [video1.url, video2.url, video3.url, video4.url, video5.ur
 
 function ClientVideosCarousel() {
   const loop = [...CLIENT_VIDEOS, ...CLIENT_VIDEOS];
-  const [unmutedIndex, setUnmutedIndex] = useState<number | null>(null);
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  useEffect(() => {
+  const togglePlay = (i: number) => {
+    const target = videoRefs.current[i];
+    if (!target) return;
+    if (playingIndex === i) {
+      target.pause();
+      setPlayingIndex(null);
+      return;
+    }
     videoRefs.current.forEach((v, idx) => {
-      if (v) v.muted = idx !== unmutedIndex;
+      if (v && idx !== i) {
+        v.pause();
+        v.currentTime = 0;
+        v.muted = true;
+      }
     });
-  }, [unmutedIndex]);
-
-  const toggleSound = (i: number) => {
-    setUnmutedIndex((cur) => (cur === i ? null : i));
+    target.muted = false;
+    target.play();
+    setPlayingIndex(i);
   };
 
   return (
@@ -899,9 +909,9 @@ function ClientVideosCarousel() {
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className={`flex gap-5 w-max animate-marquee-x ${unmutedIndex !== null ? "is-paused" : ""}`}>
+        <div className={`flex gap-5 w-max animate-marquee-x ${playingIndex !== null ? "is-paused" : ""}`}>
           {loop.map((src, i) => {
-            const isUnmuted = unmutedIndex === i;
+            const isPlaying = playingIndex === i;
             return (
               <div
                 key={`${src}-${i}`}
@@ -910,32 +920,39 @@ function ClientVideosCarousel() {
                 <video
                   ref={(el) => { videoRefs.current[i] = el; }}
                   src={src}
-                  autoPlay
-                  muted={!isUnmuted}
+                  muted
                   loop
                   playsInline
                   preload="metadata"
+                  onPause={() => setPlayingIndex((cur) => (cur === i ? null : cur))}
                   className="w-full h-full object-cover"
                 />
-                <button
-                  type="button"
-                  onClick={() => toggleSound(i)}
-                  aria-label={isUnmuted ? "Silenciar depoimento" : "Ativar som do depoimento"}
-                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-sm flex items-center justify-center transition-colors"
-                >
-                  {isUnmuted ? (
+                {!isPlaying && (
+                  <button
+                    type="button"
+                    onClick={() => togglePlay(i)}
+                    aria-label="Reproduzir depoimento"
+                    className="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/35 transition-colors"
+                  >
+                    <span className="w-12 h-12 rounded-full bg-white/95 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                      <svg viewBox="0 0 24 24" className="w-5 h-5 text-[#040D1E] ml-0.5" fill="currentColor">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </button>
+                )}
+                {isPlaying && (
+                  <button
+                    type="button"
+                    onClick={() => togglePlay(i)}
+                    aria-label="Pausar depoimento"
+                    className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-sm flex items-center justify-center transition-colors"
+                  >
                     <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-                      <path d="M4 9v6h4l5 5V4L8 9H4z" />
-                      <path d="M16.5 12a4.5 4.5 0 0 0-2.5-4.03v8.06A4.5 4.5 0 0 0 16.5 12z" />
-                      <path d="M14 4.35v2.1c2.3.8 4 3 4 5.55s-1.7 4.75-4 5.55v2.1c3.4-.85 6-3.95 6-7.65s-2.6-6.8-6-7.65z" />
+                      <path d="M6 5h4v14H6zM14 5h4v14h-4z" />
                     </svg>
-                  ) : (
-                    <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
-                      <path d="M4 9v6h4l5 5V4L8 9H4z" />
-                      <path d="M19.5 12 22 9.5l-1.4-1.4-2.5 2.5-2.5-2.5L14.2 9.5 16.7 12l-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4z" />
-                    </svg>
-                  )}
-                </button>
+                  </button>
+                )}
               </div>
             );
           })}
