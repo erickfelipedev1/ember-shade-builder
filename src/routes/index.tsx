@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Importe da China com segurança: sourcing, gestão, logística e desembaraço conduzidos por especialistas.",
+          "Assessoria completa em importação da China: sourcing, gestão, logística, seguro e desembaraço aduaneiro para empresas que querem importar com segurança e previsibilidade.",
       },
     ],
   }),
