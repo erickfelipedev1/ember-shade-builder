@@ -41,7 +41,7 @@ const NOT_ITEMS = [
 ];
 
 const FAQS: [string, string][] = [
-  ["Qual o melhor produto para começar a importar?","O melhor produto é aquele em que você já tem conhecimento de mercado, fornecedor ou canal de venda. Durante o diagnóstico inicial, nossa equipe analisa viabilidade, margem e demanda para te ajudar a validar — ou ajustar — essa escolha antes de qualquer investimento."],
+  ["Qual o melhor produto para começar a importar?","O melhor produto é aquele em que você já tem conhecimento de mercado, fornecedor ou canal de venda. Durante o diagnóstico inicial, nossa equipe analisa viabilidade, margem e demanda para te ajudar a validar, ou ajustar, essa escolha antes de qualquer investimento."],
   ["A Jornada 4S pode importar produtos de marca para mim?","Não. Não realizamos a importação de produtos de marcas registradas como Nike, Adidas, Apple, Xiaomi ou JBL sem autorização do detentor da marca, o que inclui réplicas, camisas de time, celulares, perfumes e jogos licenciados. Trabalhamos apenas com operações dentro da legalidade aduaneira."],
   ["Existe um valor mínimo para contratar a assessoria?","Não há um valor fixo de entrada. O investimento na importação varia conforme o produto, a quantidade e o modal de transporte escolhidos, pontos definidos junto com você durante o diagnóstico."],
   ["Por que pago por uma estimativa de custos antes de importar?","Porque levantar um custo confiável envolve cotação com fornecedores, cálculo de frete, impostos, taxas portuárias e câmbio. É um trabalho técnico que evita que você feche um pedido com base em números irreais e descubra prejuízo só depois do embarque."],
@@ -252,32 +252,34 @@ function Index() {
     <div
       className="min-h-screen text-white antialiased main-bg"
       style={{
-        fontFamily: "'Poppins', sans-serif",
+        fontFamily: "'Montserrat', sans-serif",
         backgroundAttachment: "fixed",
       }}
     >
       <style>{`
         .main-bg {
-          background: linear-gradient(180deg, #0E1331 0%, #0D1128 30%, #11101E 60%, #0E1331 100%);
+          background: linear-gradient(180deg, #050B1C 0%, #040D1E 30%, #0A1226 60%, #050B1C 100%);
         }
         @media (max-width: 768px) {
           .main-bg {
-            background: linear-gradient(180deg, #0E1331 0%, #0D1128 40%, #11101E 70%, #0E1331 100%);
+            background: linear-gradient(180deg, #050B1C 0%, #040D1E 40%, #0A1226 70%, #050B1C 100%);
           }
         }
-        h1,h2,h3,h4 { font-family: 'Poppins', sans-serif; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
         html { scroll-behavior: smooth; }
-        .text-gradient-gold { background: linear-gradient(135deg,#FF8B3D 0%,#F96706 50%,#C44C00 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        .bg-gold-grad { background: linear-gradient(135deg,#F96706 0%,#C44C00 100%); }
-        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(249,103,6,.45); }
+        .text-gradient-gold { background: linear-gradient(135deg,#FF5252 0%,#F53131 50%,#C20000 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .bg-gold-grad { background: linear-gradient(135deg,#F53131 0%,#C20000 100%); }
+        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(245,49,49,.45); }
         @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
         .animate-marquee { animation: marquee 20s linear infinite; }
+        @keyframes bounce-slow { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,6px)} }
+        .animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
         details[open] summary .chev { transform: rotate(180deg); }
         details summary::-webkit-details-marker { display:none; }
       `}</style>
 
       {/* NAVBAR */}
-      <header className="fixed top-0 inset-x-0 z-50 bg-[#0E1331]/85 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 inset-x-0 z-50 bg-[#040D1E]/85 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <a href="#hero" className="flex items-center shrink-0">
             <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-9 sm:h-11 w-auto rounded-lg" />
@@ -292,7 +294,7 @@ function Index() {
           <div className="flex items-center gap-3">
             <button
               onClick={scrollToDiagnostico}
-              className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
+              className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
             >
               Diagnóstico grátis
             </button>
@@ -310,7 +312,7 @@ function Index() {
           </div>
         </div>
         {navOpen && (
-          <nav className="md:hidden border-t border-white/10 bg-[#0E1331]/95 px-4 sm:px-6 py-4 flex flex-col gap-1">
+          <nav className="md:hidden border-t border-white/10 bg-[#040D1E]/95 px-4 sm:px-6 py-4 flex flex-col gap-1">
             {NAV_LINKS.map(([href, label]) => (
               <a
                 key={href}
@@ -339,22 +341,22 @@ function Index() {
             aria-hidden="true"
             className="w-full h-full object-cover opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1331]/35 via-[#0E1331]/55 to-[#0E1331]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#040D1E]/35 via-[#040D1E]/55 to-[#040D1E]" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
-          <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F96706]/30 rounded-full px-4 py-1.5 bg-[#F96706]/10">
+          <span className="inline-block text-[#FF5252] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F53131]/30 rounded-full px-4 py-1.5 bg-[#F53131]/10">
             Assessoria completa em importação
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
             Sua importação da <span className="text-gradient-gold">China</span> começa aqui.
           </h1>
           <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-            Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação — para empresas que querem importar com segurança e previsibilidade.
+            Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação, para empresas que querem importar com segurança e previsibilidade.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToDiagnostico}
-              className="w-full sm:w-auto bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
+              className="w-full sm:w-auto bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
             >
               Quero meu diagnóstico gratuito
             </button>
@@ -366,10 +368,19 @@ function Index() {
             </a>
           </div>
         </div>
+        <a
+          href="#stats"
+          aria-label="Rolar para baixo"
+          className="hidden sm:flex absolute bottom-6 left-1/2 -translate-x-1/2 w-10 h-10 rounded-full border border-white/30 items-center justify-center text-white/70 hover:text-white hover:border-white/60 transition-colors animate-bounce-slow"
+        >
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
       </section>
 
       {/* STATS */}
-      <section className="py-10 sm:py-14 border-y border-white/10 bg-white/[0.02]">
+      <section id="stats" className="py-10 sm:py-14 border-y border-white/10 bg-white/[0.02]">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
             {STATS.map((s) => (
@@ -392,7 +403,7 @@ function Index() {
           </div>
           <div className="max-w-lg mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
             <form onSubmit={onInlineSubmit} className="space-y-4">
-              <p className="text-[#FF8B3D] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">Seus dados</p>
+              <p className="text-[#FF5252] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">Seus dados</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Nome completo" name="nome" placeholder="Seu nome" required />
                 <Field label="Nome da empresa" name="empresa" placeholder="Nome da empresa" required />
@@ -401,7 +412,7 @@ function Index() {
                 <Field label="WhatsApp" name="telefone" type="tel" placeholder="(00) 00000-0000" required />
                 <Field label="E-mail" name="email" type="email" placeholder="seu@email.com" required />
               </div>
-              <p className="text-[#FF8B3D] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5 pt-2">Sobre você</p>
+              <p className="text-[#FF5252] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5 pt-2">Sobre você</p>
               <div>
                 <Label>Você possui CNPJ?</Label>
                 <DarkSelect name="cnpj" required>
@@ -430,7 +441,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={inlineLoading} className="w-full bg-[#F96706] hover:bg-[#C44C00] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
+              <button type="submit" disabled={inlineLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
                 {inlineLoading ? "Enviando..." : "Enviar"}
               </button>
               {inlineStatus.kind !== "idle" && (
@@ -452,14 +463,14 @@ function Index() {
       {/* ABOUT */}
       <section id="about" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
+          <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">Mais do que uma assessoria: um parceiro operacional para a sua importação.</h2>
               <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
-                Com mais de 20 anos de experiência no comércio exterior brasileiro, a Jornada 4S conecta sua empresa aos melhores fornecedores da China e assume, na prática, a gestão da sua importação — da cotação ao desembaraço aduaneiro. Enquanto você foca no seu negócio, nossa equipe cuida de cada etapa da operação.
+                Com mais de 20 anos de experiência no comércio exterior brasileiro, a Jornada 4S conecta sua empresa aos melhores fornecedores da China e assume, na prática, a gestão da sua importação, da cotação ao desembaraço aduaneiro. Enquanto você foca no seu negócio, nossa equipe cuida de cada etapa da operação.
               </p>
-              <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#1E0E08] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
+              <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
               <img src="https://importacao4s.lovable.app/assets/about-ship-AOM8hCww.jpg" alt="Navio cargueiro no porto" className="w-full h-64 sm:h-80 lg:h-96 object-cover" loading="lazy" />
@@ -472,7 +483,7 @@ function Index() {
       <section id="diferenciais" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14 max-w-2xl">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Diferenciais</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Diferenciais</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
               Importar da China <span className="text-white/40">por conta própria</span> ou <span className="text-gradient-gold">com a Jornada 4S?</span>
             </h2>
@@ -495,9 +506,9 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="relative bg-white/5 border-2 border-[#F96706] rounded-2xl p-6 sm:p-8 shadow-gold backdrop-blur-sm">
+            <div className="relative bg-white/5 border-2 border-[#F53131] rounded-2xl p-6 sm:p-8 shadow-gold backdrop-blur-sm">
               <span className="absolute -top-3 right-6 bg-gold-grad text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Caminho recomendado</span>
-              <span className="inline-block text-[#FF8B3D] text-xs font-bold uppercase tracking-widest mb-5">Com a Jornada 4S</span>
+              <span className="inline-block text-[#FF5252] text-xs font-bold uppercase tracking-widest mb-5">Com a Jornada 4S</span>
               <ul className="space-y-3.5">
                 {[
                   "Equipe especializada negocia diretamente com fábricas e fornecedores auditados",
@@ -507,7 +518,7 @@ function Index() {
                   "Classificação fiscal correta, dentro da legislação aduaneira vigente",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
-                    <span className="text-[#FF8B3D] shrink-0 mt-0.5">✓</span>
+                    <span className="text-[#FF5252] shrink-0 mt-0.5">✓</span>
                     <span className="text-white text-sm leading-relaxed">{t}</span>
                   </li>
                 ))}
@@ -515,7 +526,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -524,12 +535,12 @@ function Index() {
       <section id="servicos" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Serviços</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Serviços</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Uma assessoria pensada para a sua operação, do início ao fim.</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((s) => (
-              <div key={s.title} className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#F96706]/40 backdrop-blur-sm transition-all">
+              <div key={s.title} className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#F53131]/40 backdrop-blur-sm transition-all">
                 <div className="h-48 overflow-hidden"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
                 <div className="p-5">
                   <h3 className="font-semibold mb-1.5 text-white">{s.title}</h3>
@@ -539,7 +550,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -548,7 +559,7 @@ function Index() {
       <section id="processo" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Como Funciona</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Como Funciona</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Do diagnóstico à entrega: nosso processo em <span className="text-gradient-gold">4 etapas.</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -571,13 +582,13 @@ function Index() {
       {/* URGENCY / CAPACITY */}
       <section className="py-14 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#F96706] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
+          <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#F53131] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
+            <span className="inline-block text-[#FF5252] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Atendimento personalizado, com vagas limitadas por mês</h2>
             <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
-              Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço — não um atendimento genérico.
+              Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço, não um atendimento genérico.
             </p>
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
               Quero garantir meu diagnóstico
             </button>
           </div>
@@ -588,14 +599,14 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Segmentos</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Segmentos</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Setores em que a Jornada 4S já atua</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PRODUCTS.map((p) => (
               <div key={p.title} className="group relative rounded-2xl overflow-hidden h-80 ring-1 ring-white/10">
                 <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0E1331] via-[#0E1331]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#040D1E] via-[#040D1E]/40 to-transparent" />
                 <div className="absolute bottom-0 p-6">
                   <h3 className="text-xl font-bold text-white mb-1">{p.title}</h3>
                   <p className="text-white/70 text-sm">{p.desc}</p>
@@ -604,7 +615,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -613,7 +624,7 @@ function Index() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que confiam na Jornada 4S</h2>
           </div>
           <div className="flex flex-wrap items-center gap-6">
@@ -645,7 +656,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -654,7 +665,7 @@ function Index() {
       <section id="faq" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <div className="mb-10">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● FAQ</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● FAQ</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Perguntas Frequentes</h2>
           </div>
           <div className="space-y-3">
@@ -662,7 +673,7 @@ function Index() {
               <details key={q} className="bg-white/5 border border-white/10 rounded-xl px-5 backdrop-blur-sm group">
                 <summary className="cursor-pointer list-none flex justify-between items-center py-4 font-semibold text-sm sm:text-base text-white">
                   <span>{q}</span>
-                  <span className="chev transition-transform text-[#FF8B3D]">▼</span>
+                  <span className="chev transition-transform text-[#FF5252]">▼</span>
                 </summary>
                 <div className="text-white/70 text-sm pb-4 leading-relaxed">{a}</div>
               </details>
@@ -675,13 +686,13 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Depoimentos</span>
+            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Depoimentos</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que já transformaram sua operação de importação com a Jornada 4S.</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {TESTI.map(([n, r, t]) => (
               <div key={n + r} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <div className="text-[#FF8B3D] mb-3">★★★★★</div>
+                <div className="text-[#FF5252] mb-3">★★★★★</div>
                 <p className="text-white/70 text-sm mb-4 leading-relaxed">{t}</p>
                 <p className="font-semibold text-white text-sm">{n}</p>
                 <p className="text-white/50 text-xs">{r}</p>
@@ -689,7 +700,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -728,13 +739,13 @@ function Index() {
               <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Menu</h4>
               <div className="space-y-2">
                 {[["#diagnostico","Início"],["#about","Quem somos"],["#diferenciais","Diferenciais"],["#servicos","Serviços"],["#contact","Contato"]].map(([h,l]) => (
-                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF8B3D] text-sm">{l}</a>
+                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF5252] text-sm">{l}</a>
                 ))}
               </div>
             </div>
           </div>
           <div className="mt-10 pt-6 border-t border-white/10 text-center">
-            <p className="text-white/40 text-xs">© 2024 Jornada 4S — Todos os direitos reservados.</p>
+            <p className="text-white/40 text-xs">© 2024 Jornada 4S, Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
@@ -742,10 +753,10 @@ function Index() {
       {/* LEAD MODAL */}
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0E1331]/70 p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#040D1E]/70 p-4"
           onClick={(e) => { if (e.target === e.currentTarget) closeLead(); }}
         >
-          <div className="bg-[#1E0E08] border border-white/10 text-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
+          <div className="bg-[#0A1226] border border-white/10 text-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
             <button onClick={closeLead} className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl leading-none">×</button>
             <h3 className="text-2xl font-bold mb-1 text-white">Agende seu diagnóstico gratuito</h3>
             <p className="text-sm text-white/60 mb-5">Preencha os dados abaixo e nossa equipe entrará em contato em até 1 dia útil.</p>
@@ -783,7 +794,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={modalLoading} className="w-full bg-[#F96706] hover:bg-[#C44C00] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
+              <button type="submit" disabled={modalLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
                 {modalLoading ? "Enviando..." : "QUERO MEU DIAGNÓSTICO"}
               </button>
               {modalStatus.kind !== "idle" && (
@@ -802,7 +813,7 @@ function Index() {
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <label className="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">
-      {children} <span className="text-[#FF8B3D]">*</span>
+      {children} <span className="text-[#FF5252]">*</span>
     </label>
   );
 }
@@ -813,7 +824,7 @@ function Field({
   return (
     <div>
       <label className="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">
-        {label} {required && <span className="text-[#FF8B3D]">*</span>}
+        {label} {required && <span className="text-[#FF5252]">*</span>}
       </label>
       <input
         name={name}
@@ -821,7 +832,7 @@ function Field({
         required={required}
         maxLength={180}
         placeholder={placeholder}
-        className="w-full bg-white/5 border border-white/15 text-white placeholder-white/30 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F96706] focus:border-[#F96706]"
+        className="w-full bg-white/5 border border-white/15 text-white placeholder-white/30 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F53131] focus:border-[#F53131]"
       />
     </div>
   );
@@ -834,7 +845,7 @@ function DarkSelect({
     <select
       name={name}
       required={required}
-      className="w-full bg-white/5 border border-white/15 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F96706] focus:border-[#F96706] [&>option]:bg-[#1E0E08] [&>option]:text-white"
+      className="w-full bg-white/5 border border-white/15 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F53131] focus:border-[#F53131] [&>option]:bg-[#0A1226] [&>option]:text-white"
     >
       {children}
     </select>
@@ -845,6 +856,19 @@ const CLIENT_VIDEOS = [video1.url, video2.url, video3.url, video4.url, video5.ur
 
 function ClientVideosCarousel() {
   const loop = [...CLIENT_VIDEOS, ...CLIENT_VIDEOS];
+  const [unmutedIndex, setUnmutedIndex] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+
+  useEffect(() => {
+    videoRefs.current.forEach((v, idx) => {
+      if (v) v.muted = idx !== unmutedIndex;
+    });
+  }, [unmutedIndex]);
+
+  const toggleSound = (i: number) => {
+    setUnmutedIndex((cur) => (cur === i ? null : i));
+  };
+
   return (
     <div className="mt-12">
       <div
@@ -856,28 +880,52 @@ function ClientVideosCarousel() {
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className="flex gap-5 w-max animate-marquee-x">
-          {loop.map((src, i) => (
-            <div
-              key={`${src}-${i}`}
-              className="shrink-0 w-[240px] sm:w-[260px] aspect-[9/16] bg-[#0E1331] rounded-2xl overflow-hidden border border-white/10 shadow-lg"
-            >
-              <video
-                src={src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
+        <div className={`flex gap-5 w-max animate-marquee-x ${unmutedIndex !== null ? "is-paused" : ""}`}>
+          {loop.map((src, i) => {
+            const isUnmuted = unmutedIndex === i;
+            return (
+              <div
+                key={`${src}-${i}`}
+                className="group relative shrink-0 w-[240px] sm:w-[260px] aspect-[9/16] bg-[#040D1E] rounded-2xl overflow-hidden border border-white/10 shadow-lg"
+              >
+                <video
+                  ref={(el) => { videoRefs.current[i] = el; }}
+                  src={src}
+                  autoPlay
+                  muted={!isUnmuted}
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => toggleSound(i)}
+                  aria-label={isUnmuted ? "Silenciar depoimento" : "Ativar som do depoimento"}
+                  className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-sm flex items-center justify-center transition-colors"
+                >
+                  {isUnmuted ? (
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
+                      <path d="M4 9v6h4l5 5V4L8 9H4z" />
+                      <path d="M16.5 12a4.5 4.5 0 0 0-2.5-4.03v8.06A4.5 4.5 0 0 0 16.5 12z" />
+                      <path d="M14 4.35v2.1c2.3.8 4 3 4 5.55s-1.7 4.75-4 5.55v2.1c3.4-.85 6-3.95 6-7.65s-2.6-6.8-6-7.65z" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 text-white" fill="currentColor">
+                      <path d="M4 9v6h4l5 5V4L8 9H4z" />
+                      <path d="M19.5 12 22 9.5l-1.4-1.4-2.5 2.5-2.5-2.5L14.2 9.5 16.7 12l-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
       <style>{`
         @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
         .animate-marquee-x { animation: marquee-x 20s linear infinite; }
+        .animate-marquee-x.is-paused { animation-play-state: paused; }
         @media (max-width: 640px) {
           .animate-marquee-x { animation: marquee-x 10s linear infinite; }
         }
