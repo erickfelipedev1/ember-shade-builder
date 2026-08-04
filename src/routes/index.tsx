@@ -267,9 +267,9 @@ function Index() {
         }
         h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; font-weight: 800; }
         html { scroll-behavior: smooth; }
-        .text-gradient-gold { background: linear-gradient(135deg,#FF5252 0%,#F53131 50%,#C20000 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
-        .bg-gold-grad { background: linear-gradient(135deg,#F53131 0%,#C20000 100%); }
-        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(245,49,49,.45); }
+        .text-gradient-gold { background: linear-gradient(135deg,#FF8B3D 0%,#F96706 50%,#C44C00 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        .bg-gold-grad { background: linear-gradient(135deg,#F96706 0%,#C44C00 100%); }
+        .shadow-gold { box-shadow: 0 8px 30px -4px rgba(249,103,6,.45); }
         @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
         .animate-marquee { animation: marquee 20s linear infinite; }
         @keyframes bounce-slow { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,6px)} }
@@ -294,7 +294,7 @@ function Index() {
           <div className="flex items-center gap-3">
             <button
               onClick={scrollToDiagnostico}
-              className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
+              className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
             >
               Diagnóstico grátis
             </button>
@@ -344,7 +344,7 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#040D1E]/35 via-[#040D1E]/55 to-[#040D1E]" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
-          <span className="inline-block text-[#FF5252] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F53131]/30 rounded-full px-4 py-1.5 bg-[#F53131]/10">
+          <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F96706]/30 rounded-full px-4 py-1.5 bg-[#F96706]/10">
             Assessoria completa em importação
           </span>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-5">
@@ -356,7 +356,7 @@ function Index() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={scrollToDiagnostico}
-              className="w-full sm:w-auto bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
+              className="w-full sm:w-auto bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors"
             >
               Quero meu diagnóstico gratuito
             </button>
@@ -403,7 +403,7 @@ function Index() {
           </div>
           <div className="max-w-lg mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
             <form onSubmit={onInlineSubmit} className="space-y-4">
-              <p className="text-[#FF5252] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">Seus dados</p>
+              <p className="text-[#FF8B3D] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">Seus dados</p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Nome completo" name="nome" placeholder="Seu nome" required />
                 <Field label="Nome da empresa" name="empresa" placeholder="Nome da empresa" required />
@@ -412,7 +412,7 @@ function Index() {
                 <Field label="WhatsApp" name="telefone" type="tel" placeholder="(00) 00000-0000" required />
                 <Field label="E-mail" name="email" type="email" placeholder="seu@email.com" required />
               </div>
-              <p className="text-[#FF5252] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5 pt-2">Sobre você</p>
+              <p className="text-[#FF8B3D] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5 pt-2">Sobre você</p>
               <div>
                 <Label>Você possui CNPJ?</Label>
                 <DarkSelect name="cnpj" required>
@@ -441,7 +441,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={inlineLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
+              <button type="submit" disabled={inlineLoading} className="w-full bg-[#F96706] hover:bg-[#C44C00] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
                 {inlineLoading ? "Enviando..." : "Enviar"}
               </button>
               {inlineStatus.kind !== "idle" && (
@@ -463,7 +463,7 @@ function Index() {
       {/* ABOUT */}
       <section id="about" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
+          <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">Mais do que uma assessoria: um parceiro operacional para a sua importação.</h2>
@@ -483,7 +483,7 @@ function Index() {
       <section id="diferenciais" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14 max-w-2xl">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Diferenciais</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Diferenciais</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
               Importar da China <span className="text-white/40">por conta própria</span> ou <span className="text-gradient-gold">com a Jornada 4S?</span>
             </h2>
@@ -506,9 +506,9 @@ function Index() {
                 ))}
               </ul>
             </div>
-            <div className="relative bg-white/5 border-2 border-[#F53131] rounded-2xl p-6 sm:p-8 shadow-gold backdrop-blur-sm">
+            <div className="relative bg-white/5 border-2 border-[#F96706] rounded-2xl p-6 sm:p-8 shadow-gold backdrop-blur-sm">
               <span className="absolute -top-3 right-6 bg-gold-grad text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Caminho recomendado</span>
-              <span className="inline-block text-[#FF5252] text-xs font-bold uppercase tracking-widest mb-5">Com a Jornada 4S</span>
+              <span className="inline-block text-[#FF8B3D] text-xs font-bold uppercase tracking-widest mb-5">Com a Jornada 4S</span>
               <ul className="space-y-3.5">
                 {[
                   "Equipe especializada negocia diretamente com fábricas e fornecedores auditados",
@@ -518,7 +518,7 @@ function Index() {
                   "Classificação fiscal correta, dentro da legislação aduaneira vigente",
                 ].map((t) => (
                   <li key={t} className="flex items-start gap-3">
-                    <span className="text-[#FF5252] shrink-0 mt-0.5">✓</span>
+                    <span className="text-[#FF8B3D] shrink-0 mt-0.5">✓</span>
                     <span className="text-white text-sm leading-relaxed">{t}</span>
                   </li>
                 ))}
@@ -526,7 +526,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -535,12 +535,12 @@ function Index() {
       <section id="servicos" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Serviços</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Serviços</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Uma assessoria pensada para a sua operação, do início ao fim.</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((s) => (
-              <div key={s.title} className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#F53131]/40 backdrop-blur-sm transition-all">
+              <div key={s.title} className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#F96706]/40 backdrop-blur-sm transition-all">
                 <div className="h-48 overflow-hidden"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
                 <div className="p-5">
                   <h3 className="font-semibold mb-1.5 text-white">{s.title}</h3>
@@ -550,7 +550,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -559,7 +559,7 @@ function Index() {
       <section id="processo" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Como Funciona</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Como Funciona</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Do diagnóstico à entrega: nosso processo em <span className="text-gradient-gold">4 etapas.</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -582,13 +582,13 @@ function Index() {
       {/* URGENCY / CAPACITY */}
       <section className="py-14 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#F53131] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
-            <span className="inline-block text-[#FF5252] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
+          <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#F96706] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
+            <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Atendimento personalizado, com vagas limitadas por mês</h2>
             <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
               Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço, não um atendimento genérico.
             </p>
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold uppercase tracking-wide text-sm transition-colors">
               Quero garantir meu diagnóstico
             </button>
           </div>
@@ -599,7 +599,7 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Segmentos</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Segmentos</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Setores em que a Jornada 4S já atua</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -615,7 +615,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -624,7 +624,7 @@ function Index() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que confiam na Jornada 4S</h2>
           </div>
           <div className="flex flex-wrap items-center gap-6">
@@ -656,7 +656,7 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -665,7 +665,7 @@ function Index() {
       <section id="faq" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <div className="mb-10">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● FAQ</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● FAQ</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Perguntas Frequentes</h2>
           </div>
           <div className="space-y-3">
@@ -673,7 +673,7 @@ function Index() {
               <details key={q} className="bg-white/5 border border-white/10 rounded-xl px-5 backdrop-blur-sm group">
                 <summary className="cursor-pointer list-none flex justify-between items-center py-4 font-semibold text-sm sm:text-base text-white">
                   <span>{q}</span>
-                  <span className="chev transition-transform text-[#FF5252]">▼</span>
+                  <span className="chev transition-transform text-[#FF8B3D]">▼</span>
                 </summary>
                 <div className="text-white/70 text-sm pb-4 leading-relaxed">{a}</div>
               </details>
@@ -686,13 +686,13 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-[#FF5252] font-semibold text-sm uppercase tracking-wider mb-3">● Depoimentos</span>
+            <span className="inline-block text-[#FF8B3D] font-semibold text-sm uppercase tracking-wider mb-3">● Depoimentos</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que já transformaram sua operação de importação com a Jornada 4S.</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {TESTI.map(([n, r, t]) => (
               <div key={n + r} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <div className="text-[#FF5252] mb-3">★★★★★</div>
+                <div className="text-[#FF8B3D] mb-3">★★★★★</div>
                 <p className="text-white/70 text-sm mb-4 leading-relaxed">{t}</p>
                 <p className="font-semibold text-white text-sm">{n}</p>
                 <p className="text-white/50 text-xs">{r}</p>
@@ -700,7 +700,7 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-[#F53131] hover:bg-[#C20000] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button onClick={scrollToDiagnostico} className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-8 py-4 rounded-lg shadow-gold transition-colors">Quero falar com um especialista!</button>
           </div>
         </div>
       </section>
@@ -739,7 +739,7 @@ function Index() {
               <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Menu</h4>
               <div className="space-y-2">
                 {[["#diagnostico","Início"],["#about","Quem somos"],["#diferenciais","Diferenciais"],["#servicos","Serviços"],["#contact","Contato"]].map(([h,l]) => (
-                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF5252] text-sm">{l}</a>
+                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF8B3D] text-sm">{l}</a>
                 ))}
               </div>
             </div>
@@ -794,7 +794,7 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={modalLoading} className="w-full bg-[#F53131] hover:bg-[#C20000] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
+              <button type="submit" disabled={modalLoading} className="w-full bg-[#F96706] hover:bg-[#C44C00] disabled:opacity-60 text-white font-bold py-4 rounded-lg shadow-gold transition-colors">
                 {modalLoading ? "Enviando..." : "QUERO MEU DIAGNÓSTICO"}
               </button>
               {modalStatus.kind !== "idle" && (
@@ -813,7 +813,7 @@ function Index() {
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <label className="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">
-      {children} <span className="text-[#FF5252]">*</span>
+      {children} <span className="text-[#FF8B3D]">*</span>
     </label>
   );
 }
@@ -824,7 +824,7 @@ function Field({
   return (
     <div>
       <label className="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">
-        {label} {required && <span className="text-[#FF5252]">*</span>}
+        {label} {required && <span className="text-[#FF8B3D]">*</span>}
       </label>
       <input
         name={name}
@@ -832,7 +832,7 @@ function Field({
         required={required}
         maxLength={180}
         placeholder={placeholder}
-        className="w-full bg-white/5 border border-white/15 text-white placeholder-white/30 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F53131] focus:border-[#F53131]"
+        className="w-full bg-white/5 border border-white/15 text-white placeholder-white/30 rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F96706] focus:border-[#F96706]"
       />
     </div>
   );
@@ -845,7 +845,7 @@ function DarkSelect({
     <select
       name={name}
       required={required}
-      className="w-full bg-white/5 border border-white/15 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F53131] focus:border-[#F53131] [&>option]:bg-[#0A1226] [&>option]:text-white"
+      className="w-full bg-white/5 border border-white/15 text-white rounded-lg px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#F96706] focus:border-[#F96706] [&>option]:bg-[#0A1226] [&>option]:text-white"
     >
       {children}
     </select>
