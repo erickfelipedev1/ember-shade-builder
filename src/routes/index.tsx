@@ -178,8 +178,17 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean) {
   });
 }
 
+const NAV_LINKS: [string, string][] = [
+  ["#about", "Quem Somos"],
+  ["#diferenciais", "Diferenciais"],
+  ["#servicos", "Serviços"],
+  ["#processo", "Como Funciona"],
+  ["#faq", "FAQ"],
+];
+
 function Index() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [navOpen, setNavOpen] = useState(false);
   const [inlineStatus, setInlineStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
   const [modalStatus, setModalStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
   const [inlineLoading, setInlineLoading] = useState(false);
@@ -265,16 +274,57 @@ function Index() {
         details summary::-webkit-details-marker { display:none; }
       `}</style>
 
-      {/* URGENCY BAR */}
-      <div className="sticky top-0 z-50 bg-[#F96706] text-center py-2.5 px-4">
-        <p className="text-white text-xs sm:text-sm font-bold uppercase tracking-wide">
-          PARA EMPRESAS QUE VÃO IMPORTAR ACIMA DE 100 MIL
-        </p>
-      </div>
-
+      {/* NAVBAR */}
+      <header className="fixed top-0 inset-x-0 z-50 bg-[#0E1331]/85 backdrop-blur-md border-b border-white/10">
+        <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+          <a href="#hero" className="flex items-center shrink-0">
+            <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-9 sm:h-11 w-auto rounded-lg" />
+          </a>
+          <nav className="hidden md:flex items-center gap-8">
+            {NAV_LINKS.map(([href, label]) => (
+              <a key={href} href={href} className="text-white/70 hover:text-white text-sm font-medium transition-colors">
+                {label}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-[#F96706] hover:bg-[#C44C00] text-white font-bold px-4 sm:px-6 py-2.5 rounded-lg text-xs sm:text-sm uppercase tracking-wide transition-colors shrink-0"
+            >
+              Diagnóstico grátis
+            </button>
+            <button
+              onClick={() => setNavOpen((v) => !v)}
+              aria-label="Abrir menu"
+              className="md:hidden text-white/80 hover:text-white p-2 -mr-2"
+            >
+              {navOpen ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M18 6L6 18" /></svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+              )}
+            </button>
+          </div>
+        </div>
+        {navOpen && (
+          <nav className="md:hidden border-t border-white/10 bg-[#0E1331]/95 px-4 sm:px-6 py-4 flex flex-col gap-1">
+            {NAV_LINKS.map(([href, label]) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setNavOpen(false)}
+                className="text-white/70 hover:text-white text-sm font-medium py-2.5 border-b border-white/5 last:border-0"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        )}
+      </header>
 
       {/* HERO */}
-      <section id="hero" className="relative pt-14 pb-10 sm:pt-20 sm:pb-14 overflow-hidden">
+      <section id="hero" className="relative pt-28 pb-10 sm:pt-36 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <video
             src="/hero-cargo-loop.mp4"
@@ -289,7 +339,6 @@ function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1331]/35 via-[#0E1331]/55 to-[#0E1331]" />
         </div>
         <div className="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
-          <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-12 sm:h-14 w-auto mx-auto mb-6 rounded-xl" />
           <span className="inline-block text-[#FF8B3D] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4 border border-[#F96706]/30 rounded-full px-4 py-1.5 bg-[#F96706]/10">
             Assessoria completa em importação
           </span>
