@@ -328,6 +328,7 @@ function Index() {
         <div className="absolute inset-0 -z-10">
           <video
             src="/hero-port-aerial.mp4"
+            poster="/hero-port-aerial-poster.jpg"
             autoPlay
             muted
             loop
