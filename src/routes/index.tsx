@@ -326,7 +326,7 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="hero" className="relative pt-28 pb-10 sm:pt-36 sm:pb-14 overflow-hidden">
+      <section id="hero" className="relative isolate pt-28 pb-10 sm:pt-36 sm:pb-14 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <video
             src={heroVideo.url}
