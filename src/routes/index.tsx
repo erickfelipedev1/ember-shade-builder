@@ -67,7 +67,7 @@ const SERVICES = [
 const STATS: { target: number; suffix: string; label: string }[] = [
   { target: 30, suffix: "+", label: "Anos de experiência no comércio exterior" },
   { target: 700, suffix: "+", label: "Empresas atendidas" },
-  { target: 5, suffix: "", label: "Estágios da nossa metodologia" },
+  { target: 4, suffix: "", label: "Etapas da nossa metodologia" },
   { target: 100, suffix: "%", label: "Dentro da legislação aduaneira" },
 ];
 
