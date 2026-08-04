@@ -946,7 +946,7 @@ function ClientVideosCarousel() {
         .animate-marquee-x { animation: marquee-x 20s linear infinite; }
         .animate-marquee-x.is-paused { animation-play-state: paused; }
         @media (max-width: 640px) {
-          .animate-marquee-x { animation: marquee-x 10s linear infinite; }
+          .animate-marquee-x { animation: marquee-x 45s linear infinite; }
         }
       `}</style>
     </div>
