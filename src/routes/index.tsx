@@ -671,7 +671,7 @@ function Index() {
                     <img
                       src={c.logo}
                       alt={c.name}
-                      className={cn("h-8 sm:h-10 w-auto object-contain", c.className)}
+                      className={`h-8 sm:h-10 w-auto object-contain ${c.className || ""}`}
                     />
                   ) : (
                     <span className="font-bold text-lg text-white whitespace-nowrap">{c.name}</span>
