@@ -650,7 +650,7 @@ function Index() {
             {[
               { name: "Petz", logo: "/logo-petz.png" },
               { name: "Maxfix", logo: "/logo-maxfix.png" },
-              { name: "Deceuninck", logo: null },
+              { name: "Deceuninck", logo: "/logo-deceuninck.png" },
               { name: "Omega Importadora", logo: null },
               { name: "Eletromidia", logo: "/logo-eletromidia.png" },
             ].map((c) => (
