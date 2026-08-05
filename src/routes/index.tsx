@@ -71,6 +71,14 @@ const STATS: { target: number; suffix: string; label: string }[] = [
   { target: 100, suffix: "%", label: "Dentro da legislação aduaneira" },
 ];
 
+const CLIENTS: { name: string; logo: string | null }[] = [
+  { name: "Petz", logo: "/logo-petz.png" },
+  { name: "Maxfix", logo: "/logo-maxfix.png" },
+  { name: "Deceuninck", logo: "/logo-deceuninck.png" },
+  { name: "Ômega Importadora", logo: "/logo-omega-importadora.png" },
+  { name: "Eletromidia", logo: "/logo-eletromidia.png" },
+];
+
 const PRODUCTS = [
   { img: "https://importacao4s.lovable.app/assets/product-kitchen-B92Fsfwx.jpg", title: "Itens de Cozinha", desc: "Linha completa de utensílios e acessórios com excelente custo-benefício para o varejo." },
   { img: "https://importacao4s.lovable.app/assets/product-machinery-z3ctZ7Ix.jpg", title: "Maquinários", desc: "Equipamentos industriais para empresas que buscam ganho de produtividade." },
@@ -646,22 +654,27 @@ function Index() {
             <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que confiam na Jornada 4S</h2>
           </div>
-          <div className="flex flex-wrap items-center gap-6">
-            {[
-              { name: "Petz", logo: "/logo-petz.png" },
-              { name: "Maxfix", logo: "/logo-maxfix.png" },
-              { name: "Deceuninck", logo: "/logo-deceuninck.png" },
-              { name: "Ômega Importadora", logo: "/logo-omega-importadora.png" },
-              { name: "Eletromidia", logo: "/logo-eletromidia.png" },
-            ].map((c) => (
-              <div key={c.name} className="bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center">
-                {c.logo ? (
-                  <img src={c.logo} alt={c.name} className="h-8 sm:h-10 w-auto object-contain" />
-                ) : (
-                  <span className="font-bold text-lg text-white">{c.name}</span>
-                )}
-              </div>
-            ))}
+          <div
+            className="relative overflow-hidden"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            }}
+          >
+            <div className="flex gap-6 w-max animate-marquee-x">
+              {[...CLIENTS, ...CLIENTS].map((c, i) => (
+                <div
+                  key={`${c.name}-${i}`}
+                  className="shrink-0 bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center"
+                >
+                  {c.logo ? (
+                    <img src={c.logo} alt={c.name} className="h-8 sm:h-10 w-auto object-contain" />
+                  ) : (
+                    <span className="font-bold text-lg text-white whitespace-nowrap">{c.name}</span>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
