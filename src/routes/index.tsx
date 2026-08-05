@@ -668,7 +668,11 @@ function Index() {
                   className="shrink-0 bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center"
                 >
                   {c.logo ? (
-                    <img src={c.logo} alt={c.name} className="h-8 sm:h-10 w-auto object-contain" />
+                    <img
+                      src={c.logo}
+                      alt={c.name}
+                      className={cn("h-8 sm:h-10 w-auto object-contain", c.className)}
+                    />
                   ) : (
                     <span className="font-bold text-lg text-white whitespace-nowrap">{c.name}</span>
                   )}
