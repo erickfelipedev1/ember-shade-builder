@@ -647,9 +647,19 @@ function Index() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que confiam na Jornada 4S</h2>
           </div>
           <div className="flex flex-wrap items-center gap-6">
-            {["Petz","Maxfix","Deceuninck","Omega Importadora","Eletromidia"].map((c) => (
-              <div key={c} className="bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm">
-                <span className="font-bold text-lg text-white">{c}</span>
+            {[
+              { name: "Petz", logo: "/logo-petz.png" },
+              { name: "Maxfix", logo: "/logo-maxfix.png" },
+              { name: "Deceuninck", logo: null },
+              { name: "Omega Importadora", logo: null },
+              { name: "Eletromidia", logo: "/logo-eletromidia.png" },
+            ].map((c) => (
+              <div key={c.name} className="bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center">
+                {c.logo ? (
+                  <img src={c.logo} alt={c.name} className="h-8 sm:h-10 w-auto object-contain" />
+                ) : (
+                  <span className="font-bold text-lg text-white">{c.name}</span>
+                )}
               </div>
             ))}
           </div>
