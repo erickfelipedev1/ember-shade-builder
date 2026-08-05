@@ -651,7 +651,7 @@ function Index() {
               { name: "Petz", logo: "/logo-petz.png" },
               { name: "Maxfix", logo: "/logo-maxfix.png" },
               { name: "Deceuninck", logo: "/logo-deceuninck.png" },
-              { name: "Omega Importadora", logo: null },
+              { name: "Ômega Importadora", logo: "/logo-omega-importadora.png" },
               { name: "Eletromidia", logo: "/logo-eletromidia.png" },
             ].map((c) => (
               <div key={c.name} className="bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center">
