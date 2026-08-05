@@ -71,11 +71,11 @@ const STATS: { target: number; suffix: string; label: string }[] = [
   { target: 100, suffix: "%", label: "Dentro da legislação aduaneira" },
 ];
 
-const CLIENTS: { name: string; logo: string | null }[] = [
+const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
   { name: "Petz", logo: "/logo-petz.png" },
   { name: "Maxfix", logo: "/logo-maxfix.png" },
-  { name: "Deceuninck", logo: "/logo-deceuninck.png" },
-  { name: "Ômega Importadora", logo: "/logo-omega-importadora.png" },
+  { name: "Deceuninck", logo: "/logo-deceuninck.png", className: "h-10 sm:h-12" },
+  { name: "Ômega Importadora", logo: "/logo-omega-importadora.png", className: "h-10 sm:h-12" },
   { name: "Eletromidia", logo: "/logo-eletromidia.png" },
 ];
 
@@ -668,7 +668,11 @@ function Index() {
                   className="shrink-0 bg-white/5 border border-white/10 rounded-xl px-8 py-5 backdrop-blur-sm flex items-center justify-center"
                 >
                   {c.logo ? (
-                    <img src={c.logo} alt={c.name} className="h-8 sm:h-10 w-auto object-contain" />
+                    <img
+                      src={c.logo}
+                      alt={c.name}
+                      className={`h-8 sm:h-10 w-auto object-contain ${c.className || ""}`}
+                    />
                   ) : (
                     <span className="font-bold text-lg text-white whitespace-nowrap">{c.name}</span>
                   )}
