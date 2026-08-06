@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 });
 
 const WEBHOOK_URL =
-  "https://functions-api.clint.digital/endpoints/integration/webhook/cc2d26ac-5471-44af-8b4d-59b0acb92a93";
+  "https://functions-api.clint.digital/endpoints/integration/webhook/be258552-c586-4e40-8568-a63a9770753a";
 
 
 const NOT_ITEMS = [
@@ -188,14 +188,14 @@ type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 async function submitLead(form: HTMLFormElement, includeInstagram: boolean) {
   const fd = new FormData(form);
   const payload = {
-    nome: fd.get("nome")?.toString().trim(),
-    empresa: fd.get("empresa")?.toString().trim() || "",
-    email: fd.get("email")?.toString().trim(),
-    telefone: fd.get("telefone")?.toString().trim(),
+    contact_nome: fd.get("nome")?.toString().trim(),
+    contact_nome_empresa: fd.get("empresa")?.toString().trim() || "",
+    contact_email: fd.get("email")?.toString().trim(),
+    contact_telefone: fd.get("telefone")?.toString().trim(),
     instagram: includeInstagram ? (fd.get("instagram")?.toString().trim() || "") : "",
-    cnpj: fd.get("cnpj")?.toString().trim() || "",
-    area_fornecedor: fd.get("area_fornecedor")?.toString().trim() || "",
-    faixa_investimento: fd.get("faixa_investimento"),
+    contact_possuir_cnpj: fd.get("cnpj")?.toString().trim() || "",
+    contact_area_fornecedor: fd.get("area_fornecedor")?.toString().trim() || "",
+    contact_valor: fd.get("faixa_investimento"),
     origem: "site-4s-comex-assessoria",
     enviado_em: new Date().toISOString(),
     ...getUTMs(),
