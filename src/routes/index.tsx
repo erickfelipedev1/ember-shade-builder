@@ -310,7 +310,7 @@ function Index() {
       <header className="fixed top-0 inset-x-0 z-50 bg-[#040D1E]/85 backdrop-blur-md border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <a href="#hero" className="flex items-center shrink-0">
-            <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-9 sm:h-11 w-auto rounded-lg" />
+            <img src="/logo-4s.png" alt="Logo Jornada 4S" className="h-9 sm:h-11 w-auto" />
           </a>
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(([href, label]) => (
