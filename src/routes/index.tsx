@@ -188,7 +188,23 @@ function FloatingWhatsApp() {
 
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 
-async function submitLead(form: HTMLFormElement, includeInstagram: boolean) {
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
+
+function pushDataLayer(event: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(event);
+}
+
+async function submitLead(
+  form: HTMLFormElement,
+  includeInstagram: boolean,
+  formLocation: string = "form",
+) {
   const fd = new FormData(form);
   const payload = {
     contact_nome: fd.get("nome")?.toString().trim(),
@@ -220,6 +236,20 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean) {
   if (results.every((r) => r.status === "rejected")) {
     throw new Error("Falha ao enviar lead para todos os destinos");
   }
+
+  pushDataLayer({
+    event: "generate_lead",
+    form_location: formLocation,
+    form_name: "diagnostico-jornada-4s",
+    lead_empresa: payload.contact_nome_empresa,
+    lead_possui_cnpj: payload.contact_possuir_cnpj,
+    lead_area_fornecedor: payload.contact_area_fornecedor,
+    lead_faixa_investimento: payload.contact_valor,
+    origem: payload.origem,
+    utm_source: payload.utm_source,
+    utm_medium: payload.utm_medium,
+    utm_campaign: payload.utm_campaign,
+  });
 }
 
 const NAV_LINKS: [string, string][] = [
@@ -259,7 +289,7 @@ function Index() {
     }
     setInlineLoading(true);
     try {
-      await submitLead(form, false);
+      await submitLead(form, false, "inline");
       setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
       form.reset();
     } catch {
@@ -279,7 +309,7 @@ function Index() {
     }
     setModalLoading(true);
     try {
-      await submitLead(form, true);
+      await submitLead(form, true, "modal");
       setModalStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
       form.reset();
       setTimeout(() => setModalOpen(false), 1800);
