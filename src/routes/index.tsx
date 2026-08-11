@@ -548,7 +548,7 @@ function Index() {
               <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/5">
-              <img src={sociosImg.url} alt="Sócios da Jornada 4S" className="w-full h-auto max-h-[28rem] object-contain" loading="lazy" />
+              <img src={sociosImg.url} alt="Sócios da Jornada 4S" className="w-full h-[28rem] object-cover" loading="lazy" />
             </div>
           </div>
         </div>
