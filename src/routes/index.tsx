@@ -538,9 +538,12 @@ function Index() {
           <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">Mais do que uma assessoria: um parceiro operacional para a sua importação.</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">A Jornada 4S e a Now Logistics fazem parte do Grupo NOW, com mais de 30 anos de experiência no comércio exterior brasileiro.</h2>
               <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
-                Com mais de 30 anos de experiência no comércio exterior brasileiro, a Jornada 4S conecta sua empresa aos melhores fornecedores da China e assume, na prática, a gestão da sua importação, da cotação ao desembaraço aduaneiro. Enquanto você foca no seu negócio, nossa equipe cuida de cada etapa da operação.
+                Conectamos sua empresa aos melhores fornecedores da China e cuidamos de toda a sua importação, da cotação ao desembaraço aduaneiro.
+              </p>
+              <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
+                Você foca no seu negócio. Nós cuidamos da sua operação internacional.
               </p>
               <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
