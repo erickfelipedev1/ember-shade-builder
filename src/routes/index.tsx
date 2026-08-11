@@ -8,6 +8,7 @@ import video5 from "@/assets/videos/video5.mp4.asset.json";
 import video6 from "@/assets/videos/video6.mp4.asset.json";
 import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
+import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
 
 
 
@@ -514,7 +515,7 @@ function Index() {
               <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
-              <img src="https://importacao4s.lovable.app/assets/about-ship-AOM8hCww.jpg" alt="Navio cargueiro no porto" className="w-full h-64 sm:h-80 lg:h-96 object-cover" loading="lazy" />
+              <img src={sociosImg.url} alt="Sócios da Jornada 4S" className="w-full h-64 sm:h-80 lg:h-96 object-cover object-top" loading="lazy" />
             </div>
           </div>
         </div>
