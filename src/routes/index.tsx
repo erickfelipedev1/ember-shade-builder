@@ -78,6 +78,7 @@ const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
   { name: "Maxfix", logo: "/logo-maxfix.png" },
   { name: "Deceuninck", logo: "/logo-deceuninck.png", className: "h-10 sm:h-12" },
   { name: "Ômega Importadora", logo: "/logo-omega-importadora.png", className: "h-10 sm:h-12" },
+  { name: "NLG", logo: "/logo-nlg.png", className: "h-10 sm:h-12" },
   { name: "Eletromidia", logo: "/logo-eletromidia.png" },
 ];
 
