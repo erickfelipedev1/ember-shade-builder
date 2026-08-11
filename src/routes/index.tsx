@@ -10,8 +10,6 @@ import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
 
-
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -37,34 +35,90 @@ const WEBHOOK_URL =
 const BACKUP_WEBHOOK_URL =
   "https://script.google.com/macros/s/AKfycbx9sLto7775bAJgpE1jWQXSZb82LjnyiJpYkeVedR7nfebwREETMKYH93W_vz2LoxMo/exec";
 
-
 const NOT_ITEMS = [
-  "Tênis","Roupas","Chuteira","Camisas de time","Produtos de Marca",
-  "Vinhos","Animais","Celulares","Perfumes","Jogos de Videogame",
+  "Tênis",
+  "Roupas",
+  "Chuteira",
+  "Camisas de time",
+  "Produtos de Marca",
+  "Vinhos",
+  "Animais",
+  "Celulares",
+  "Perfumes",
+  "Jogos de Videogame",
 ];
 
 const FAQS: [string, string][] = [
-  ["Qual o melhor produto para começar a importar?","O melhor produto é aquele em que você já tem conhecimento de mercado, fornecedor ou canal de venda. Durante o diagnóstico inicial, nossa equipe analisa viabilidade, margem e demanda para te ajudar a validar, ou ajustar, essa escolha antes de qualquer investimento."],
-  ["A Jornada 4S pode importar produtos de marca para mim?","Não. Não realizamos a importação de produtos de marcas registradas como Nike, Adidas, Apple, Xiaomi ou JBL sem autorização do detentor da marca, o que inclui réplicas, camisas de time, celulares, perfumes e jogos licenciados. Trabalhamos apenas com operações dentro da legalidade aduaneira."],
-  ["Existe um valor mínimo para contratar a assessoria?","Não há um valor fixo de entrada. O investimento na importação varia conforme o produto, a quantidade e o modal de transporte escolhidos, pontos definidos junto com você durante o diagnóstico."],
-  ["Por que pago por uma estimativa de custos antes de importar?","Porque levantar um custo confiável envolve cotação com fornecedores, cálculo de frete, impostos, taxas portuárias e câmbio. É um trabalho técnico que evita que você feche um pedido com base em números irreais e descubra prejuízo só depois do embarque."],
-  ["E se a estimativa ficar acima do que eu esperava?","Buscamos alternativas: outros fornecedores, ajustes de especificação, volume ou modal de transporte, até encontrar uma configuração viável dentro da sua margem, sem comprometer a qualidade do produto."],
-  ["Em quanto tempo minha carga chega ao Brasil?","Em uma importação formal via modal marítimo, o prazo médio entre a produção e a chegada ao porto brasileiro é de cerca de 90 dias, podendo variar conforme origem, porto de destino e época do ano."],
-  ["O que preciso ter para começar a importar com a Jornada 4S?","Você precisa de CNPJ ativo, Radar SISCOMEX habilitado e um produto definido. Se algum desses itens ainda não estiver pronto, nossa equipe orienta a regularização durante o processo de diagnóstico."],
+  [
+    "Qual o melhor produto para começar a importar?",
+    "O melhor produto é aquele em que você já tem conhecimento de mercado, fornecedor ou canal de venda. Durante o diagnóstico inicial, nossa equipe analisa viabilidade, margem e demanda para te ajudar a validar, ou ajustar, essa escolha antes de qualquer investimento.",
+  ],
+  [
+    "A Jornada 4S pode importar produtos de marca para mim?",
+    "Não. Não realizamos a importação de produtos de marcas registradas como Nike, Adidas, Apple, Xiaomi ou JBL sem autorização do detentor da marca, o que inclui réplicas, camisas de time, celulares, perfumes e jogos licenciados. Trabalhamos apenas com operações dentro da legalidade aduaneira.",
+  ],
+  [
+    "Existe um valor mínimo para contratar a assessoria?",
+    "Não há um valor fixo de entrada. O investimento na importação varia conforme o produto, a quantidade e o modal de transporte escolhidos, pontos definidos junto com você durante o diagnóstico.",
+  ],
+  [
+    "Por que pago por uma estimativa de custos antes de importar?",
+    "Porque levantar um custo confiável envolve cotação com fornecedores, cálculo de frete, impostos, taxas portuárias e câmbio. É um trabalho técnico que evita que você feche um pedido com base em números irreais e descubra prejuízo só depois do embarque.",
+  ],
+  [
+    "E se a estimativa ficar acima do que eu esperava?",
+    "Buscamos alternativas: outros fornecedores, ajustes de especificação, volume ou modal de transporte, até encontrar uma configuração viável dentro da sua margem, sem comprometer a qualidade do produto.",
+  ],
+  [
+    "Em quanto tempo minha carga chega ao Brasil?",
+    "Em uma importação formal via modal marítimo, o prazo médio entre a produção e a chegada ao porto brasileiro é de cerca de 90 dias, podendo variar conforme origem, porto de destino e época do ano.",
+  ],
+  [
+    "O que preciso ter para começar a importar com a Jornada 4S?",
+    "Você precisa de CNPJ ativo, Radar SISCOMEX habilitado e um produto definido. Se algum desses itens ainda não estiver pronto, nossa equipe orienta a regularização durante o processo de diagnóstico.",
+  ],
 ];
 
 const TESTI: [string, string, string][] = [
-  ["Renato Faustino","Nicoboco Surf School","O processo foi bem rápido, recomendo muito para quem necessita importar."],
-  ["Luís Júnior","Comunix RH","Com a 4S, você tem todo um acompanhamento sobre cada etapa da sua importação, isso traz segurança."],
-  ["Luís Júnior","Infocell Celulares","A equipe coloca o mercado chinês mais próximo da minha empresa."],
-  ["Wolney Cyrillo","Academia W2","Estou feliz demais, todos os nossos aparelhos chegaram em perfeito estado. Pode confiar."],
+  [
+    "Renato Faustino",
+    "Nicoboco Surf School",
+    "O processo foi bem rápido, recomendo muito para quem necessita importar.",
+  ],
+  [
+    "Luís Júnior",
+    "Comunix RH",
+    "Com a 4S, você tem todo um acompanhamento sobre cada etapa da sua importação, isso traz segurança.",
+  ],
+  ["Luís Júnior", "Infocell Celulares", "A equipe coloca o mercado chinês mais próximo da minha empresa."],
+  [
+    "Wolney Cyrillo",
+    "Academia W2",
+    "Estou feliz demais, todos os nossos aparelhos chegaram em perfeito estado. Pode confiar.",
+  ],
 ];
 
 const SERVICES = [
-  { img: "https://importacao4s.lovable.app/assets/service-sourcing-B4cy0-UW.jpg", title: "Sourcing Internacional", desc: "Mapeamos e auditamos fornecedores na China para o melhor equilíbrio entre preço, qualidade e prazo." },
-  { img: "https://importacao4s.lovable.app/assets/service-consulting-gnfKYHXs.jpg", title: "Gestão da Importação", desc: "Negociação, contratos, documentação e comunicação com fornecedores conduzidos pela nossa equipe." },
-  { img: "https://importacao4s.lovable.app/assets/service-logistics-DW_tWhk-.jpg", title: "Logística de Ponta a Ponta", desc: "Follow-up de produção, transporte marítimo e coordenação com despachantes até a entrega no Brasil." },
-  { img: "https://importacao4s.lovable.app/assets/service-customs-3iHe8vBX.jpg", title: "Seguro & Conformidade", desc: "Seguro de carga internacional e adequação fiscal e aduaneira para reduzir riscos da operação." },
+  {
+    img: "https://importacao4s.lovable.app/assets/service-sourcing-B4cy0-UW.jpg",
+    title: "Sourcing Internacional",
+    desc: "Mapeamos e auditamos fornecedores na China para o melhor equilíbrio entre preço, qualidade e prazo.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/service-consulting-gnfKYHXs.jpg",
+    title: "Gestão da Importação",
+    desc: "Negociação, contratos, documentação e comunicação com fornecedores conduzidos pela nossa equipe.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/service-logistics-DW_tWhk-.jpg",
+    title: "Logística de Ponta a Ponta",
+    desc: "Follow-up de produção, transporte marítimo e coordenação com despachantes até a entrega no Brasil.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/service-customs-3iHe8vBX.jpg",
+    title: "Seguro & Conformidade",
+    desc: "Seguro de carga internacional e adequação fiscal e aduaneira para reduzir riscos da operação.",
+  },
 ];
 
 const STATS: { target: number; suffix: string; label: string }[] = [
@@ -83,10 +137,26 @@ const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
 ];
 
 const PRODUCTS = [
-  { img: "https://importacao4s.lovable.app/assets/product-kitchen-B92Fsfwx.jpg", title: "Itens de Cozinha", desc: "Linha completa de utensílios e acessórios com excelente custo-benefício para o varejo." },
-  { img: "https://importacao4s.lovable.app/assets/product-machinery-z3ctZ7Ix.jpg", title: "Maquinários", desc: "Equipamentos industriais para empresas que buscam ganho de produtividade." },
-  { img: "https://importacao4s.lovable.app/assets/product-gym-qz3O5-86.jpg", title: "Aparelhos de Academia", desc: "Equipamentos fitness com forte demanda e margens atrativas no mercado nacional." },
-  { img: "https://importacao4s.lovable.app/assets/product-autoparts-CCAunTiK.jpg", title: "Autopeças", desc: "Peças e acessórios automotivos, um dos segmentos com maior crescimento na importação da China." },
+  {
+    img: "https://importacao4s.lovable.app/assets/product-kitchen-B92Fsfwx.jpg",
+    title: "Itens de Cozinha",
+    desc: "Linha completa de utensílios e acessórios com excelente custo-benefício para o varejo.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/product-machinery-z3ctZ7Ix.jpg",
+    title: "Maquinários",
+    desc: "Equipamentos industriais para empresas que buscam ganho de produtividade.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/product-gym-qz3O5-86.jpg",
+    title: "Aparelhos de Academia",
+    desc: "Equipamentos fitness com forte demanda e margens atrativas no mercado nacional.",
+  },
+  {
+    img: "https://importacao4s.lovable.app/assets/product-autoparts-CCAunTiK.jpg",
+    title: "Autopeças",
+    desc: "Peças e acessórios automotivos, um dos segmentos com maior crescimento na importação da China.",
+  },
 ];
 
 function sanitizeUTM(v: string | null) {
@@ -130,7 +200,15 @@ function useInView<T extends HTMLElement>(): [React.RefObject<T | null>, boolean
   return [ref, inView];
 }
 
-function AnimatedCounter({ target, suffix = "", duration = 1500 }: { target: number; suffix?: string; duration?: number }) {
+function AnimatedCounter({
+  target,
+  suffix = "",
+  duration = 1500,
+}: {
+  target: number;
+  suffix?: string;
+  duration?: number;
+}) {
   const [ref, inView] = useInView<HTMLSpanElement>();
   const [value, setValue] = useState(0);
   useEffect(() => {
@@ -147,7 +225,12 @@ function AnimatedCounter({ target, suffix = "", duration = 1500 }: { target: num
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, [inView, target, duration]);
-  return <span ref={ref}>{value}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {value}
+      {suffix}
+    </span>
+  );
 }
 
 function Star({ className }: { className: string }) {
@@ -200,18 +283,14 @@ function pushDataLayer(event: Record<string, unknown>) {
   window.dataLayer.push(event);
 }
 
-async function submitLead(
-  form: HTMLFormElement,
-  includeInstagram: boolean,
-  formLocation: string = "form",
-) {
+async function submitLead(form: HTMLFormElement, includeInstagram: boolean, formLocation: string = "form") {
   const fd = new FormData(form);
   const payload = {
     contact_nome: fd.get("nome")?.toString().trim(),
     contact_nome_empresa: fd.get("empresa")?.toString().trim() || "",
     contact_email: fd.get("email")?.toString().trim(),
     contact_telefone: fd.get("telefone")?.toString().trim(),
-    instagram: includeInstagram ? (fd.get("instagram")?.toString().trim() || "") : "",
+    instagram: includeInstagram ? fd.get("instagram")?.toString().trim() || "" : "",
     contact_possuir_cnpj: fd.get("cnpj")?.toString().trim() || "",
     contact_area_fornecedor: fd.get("area_fornecedor")?.toString().trim() || "",
     contact_valor: fd.get("faixa_investimento"),
@@ -276,7 +355,9 @@ function Index() {
 
   useEffect(() => {
     document.body.style.overflow = modalOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [modalOpen]);
 
   const onInlineSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -359,7 +440,11 @@ function Index() {
           </a>
           <nav className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map(([href, label]) => (
-              <a key={href} href={href} className="text-white/70 hover:text-white text-sm font-medium transition-colors">
+              <a
+                key={href}
+                href={href}
+                className="text-white/70 hover:text-white text-sm font-medium transition-colors"
+              >
                 {label}
               </a>
             ))}
@@ -377,9 +462,13 @@ function Index() {
               className="md:hidden text-white/80 hover:text-white p-2 -mr-2"
             >
               {navOpen ? (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 6l12 12M18 6L6 18" /></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
               ) : (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M3 6h18M3 12h18M3 18h18" />
+                </svg>
               )}
             </button>
           </div>
@@ -424,7 +513,8 @@ function Index() {
             Sua importação da <ChinaWord /> começa aqui.
           </h1>
           <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-            Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação, para empresas que querem importar com segurança e previsibilidade.
+            Da cotação ao desembaraço aduaneiro, cuidamos de cada etapa da sua importação, para empresas que querem
+            importar com segurança e previsibilidade.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
@@ -472,11 +562,15 @@ function Index() {
       <section id="diagnostico" className="pt-10 pb-16 sm:pt-14 sm:pb-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-lg mx-auto mb-8 text-center">
-            <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">Preencha seus dados e agende seu diagnóstico gratuito</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-white leading-tight">
+              Preencha seus dados e agende seu diagnóstico gratuito
+            </h2>
           </div>
           <div className="max-w-lg mx-auto bg-white/[0.04] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
             <form onSubmit={onInlineSubmit} className="space-y-4">
-              <p className="text-[#FF8A5C] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">Seus dados</p>
+              <p className="text-[#FF8A5C] text-xs font-bold uppercase tracking-wider border-b border-white/10 pb-2.5">
+                Seus dados
+              </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Nome completo" name="nome" placeholder="Seu nome" required />
                 <Field label="Nome da empresa" name="empresa" placeholder="Nome da empresa" required />
@@ -497,7 +591,9 @@ function Index() {
                 <Label>Qual área representa melhor o tipo de fornecedor que você procura?</Label>
                 <DarkSelect name="area_fornecedor" required>
                   <option value="">Selecione uma área</option>
-                  <option value="Insumos e Matéria-prima para a indústria">Insumos e Matéria-prima para a indústria</option>
+                  <option value="Insumos e Matéria-prima para a indústria">
+                    Insumos e Matéria-prima para a indústria
+                  </option>
                   <option value="Máquinas e Equipamentos">Máquinas e Equipamentos</option>
                   <option value="Eletrônicos e Tecnologia">Eletrônicos e Tecnologia</option>
                   <option value="Itens para Varejo">Itens para Varejo</option>
@@ -513,13 +609,21 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={inlineLoading} className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-full shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors">
+              <button
+                type="submit"
+                disabled={inlineLoading}
+                className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-full shadow-gold uppercase tracking-wide text-sm mt-2 transition-colors"
+              >
                 {inlineLoading ? "Enviando..." : "Enviar"}
               </button>
               {inlineStatus.kind !== "idle" && (
-                <p className={`text-sm text-center ${inlineStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>{inlineStatus.text}</p>
+                <p className={`text-sm text-center ${inlineStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>
+                  {inlineStatus.text}
+                </p>
               )}
-              <p className="text-white/30 text-xs text-center flex items-center justify-center gap-1.5">🔒 Seus dados estão protegidos. Sem spam.</p>
+              <p className="text-white/30 text-xs text-center flex items-center justify-center gap-1.5">
+                🔒 Seus dados estão protegidos. Sem spam.
+              </p>
             </form>
           </div>
         </div>
@@ -535,20 +639,42 @@ function Index() {
       {/* ABOUT */}
       <section id="about" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Quem Somos</span>
+          <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+            ● Quem Somos
+          </span>
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">A Jornada 4S e a Now Logistics fazem parte do Grupo NOW, com mais de 30 anos de experiência no comércio exterior brasileiro.</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-5 text-white">
+                Mais do que uma assessoria: um parceiro operacional para a sua importação.
+              </h2>
               <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
-                Conectamos sua empresa aos melhores fornecedores da China e cuidamos de toda a sua importação, da cotação ao desembaraço aduaneiro.
+                A Jornada 4S e a Now Logistics fazem parte do Grupo NOW, com mais de 30 anos de experiência no comércio
+                exterior brasileiro.
               </p>
+
+              <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
+                Conectamos sua empresa aos melhores fornecedores da China e cuidamos de toda a sua importação, da
+                cotação ao desembaraço aduaneiro.
+              </p>
+
               <p className="text-white/70 leading-relaxed mb-6 text-sm sm:text-base">
                 Você foca no seu negócio. Nós cuidamos da sua operação internacional.
               </p>
-              <a href="#diagnostico" className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors">CONHEÇA NOSSOS SERVIÇOS</a>
+
+              <a
+                href="#diagnostico"
+                className="inline-block border-2 border-white/40 text-white hover:bg-white hover:text-[#0A1226] font-semibold px-6 py-3 rounded-lg transition-colors"
+              >
+                CONHEÇA NOSSOS SERVIÇOS
+              </a>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-white/5">
-              <img src={sociosImg.url} alt="Sócios da Jornada 4S" className="w-full h-[28rem] object-cover" loading="lazy" />
+              <img
+                src={sociosImg.url}
+                alt="Sócios da Jornada 4S"
+                className="w-full h-[28rem] object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -558,14 +684,19 @@ function Index() {
       <section id="diferenciais" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14 max-w-2xl">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Diferenciais</span>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Diferenciais
+            </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-              Importar da China <span className="text-white/40">por conta própria</span> ou <span className="text-gradient-gold">com a Jornada 4S?</span>
+              Importar da China <span className="text-white/40">por conta própria</span> ou{" "}
+              <span className="text-gradient-gold">com a Jornada 4S?</span>
             </h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
-              <span className="inline-block text-white/40 text-xs font-bold uppercase tracking-widest mb-5">Sem assessoria</span>
+              <span className="inline-block text-white/40 text-xs font-bold uppercase tracking-widest mb-5">
+                Sem assessoria
+              </span>
               <ul className="space-y-3.5">
                 {[
                   "Negociação direta com fornecedores chineses, sem domínio do idioma e da cultura de negócios local",
@@ -582,8 +713,12 @@ function Index() {
               </ul>
             </div>
             <div className="relative bg-white/5 border-2 border-[#FF4B12] rounded-2xl p-6 sm:p-8 shadow-gold backdrop-blur-sm">
-              <span className="absolute -top-3 right-6 bg-gold-grad text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">Caminho recomendado</span>
-              <span className="inline-block text-[#FF8A5C] text-xs font-bold uppercase tracking-widest mb-5">Com a Jornada 4S</span>
+              <span className="absolute -top-3 right-6 bg-gold-grad text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                Caminho recomendado
+              </span>
+              <span className="inline-block text-[#FF8A5C] text-xs font-bold uppercase tracking-widest mb-5">
+                Com a Jornada 4S
+              </span>
               <ul className="space-y-3.5">
                 {[
                   "Equipe especializada negocia diretamente com fábricas e fornecedores auditados",
@@ -601,7 +736,12 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors"
+            >
+              Quero falar com um especialista!
+            </button>
           </div>
         </div>
       </section>
@@ -610,13 +750,26 @@ function Index() {
       <section id="servicos" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Serviços</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Uma assessoria pensada para a sua operação, do início ao fim.</h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Serviços
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Uma assessoria pensada para a sua operação, do início ao fim.
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICES.map((s) => (
-              <div key={s.title} className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#FF4B12]/40 backdrop-blur-sm transition-all">
-                <div className="h-48 overflow-hidden"><img src={s.img} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /></div>
+              <div
+                key={s.title}
+                className="group rounded-xl overflow-hidden bg-white/5 border border-white/10 hover:border-[#FF4B12]/40 backdrop-blur-sm transition-all"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
                 <div className="p-5">
                   <h3 className="font-semibold mb-1.5 text-white">{s.title}</h3>
                   <p className="text-sm text-white/60">{s.desc}</p>
@@ -625,7 +778,12 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors"
+            >
+              Quero falar com um especialista!
+            </button>
           </div>
         </div>
       </section>
@@ -634,15 +792,35 @@ function Index() {
       <section id="processo" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Como Funciona</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Do diagnóstico à entrega: nosso processo em <span className="text-gradient-gold">4 etapas.</span></h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Como Funciona
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Do diagnóstico à entrega: nosso processo em <span className="text-gradient-gold">4 etapas.</span>
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              ["1","Diagnóstico & Sourcing","Avaliamos seu produto, mapeamos fornecedores e fábricas qualificadas na China e levantamos as melhores condições de preço e prazo."],
-              ["2","Negociação & Gestão","Cuidamos de toda a negociação, contratos, amostras e comunicação com os fornecedores chineses em seu nome."],
-              ["3","Follow-up & Embarque","Acompanhamento detalhado da produção e do controle de qualidade até o embarque e transporte marítimo."],
-              ["4","Desembaraço & Entrega","Conduzimos toda a parte fiscal e aduaneira para que sua carga chegue sem problemas até o seu endereço."],
+              [
+                "1",
+                "Diagnóstico & Sourcing",
+                "Avaliamos seu produto, mapeamos fornecedores e fábricas qualificadas na China e levantamos as melhores condições de preço e prazo.",
+              ],
+              [
+                "2",
+                "Negociação & Gestão",
+                "Cuidamos de toda a negociação, contratos, amostras e comunicação com os fornecedores chineses em seu nome.",
+              ],
+              [
+                "3",
+                "Follow-up & Embarque",
+                "Acompanhamento detalhado da produção e do controle de qualidade até o embarque e transporte marítimo.",
+              ],
+              [
+                "4",
+                "Desembaraço & Entrega",
+                "Conduzimos toda a parte fiscal e aduaneira para que sua carga chegue sem problemas até o seu endereço.",
+              ],
             ].map(([n, t, d]) => (
               <div key={n}>
                 <span className="text-6xl font-bold block mb-2 text-gradient-gold">{n}</span>
@@ -658,12 +836,21 @@ function Index() {
       <section className="py-14 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center bg-white/5 border-2 border-[#FF4B12] rounded-2xl p-8 sm:p-12 shadow-gold backdrop-blur-sm">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">● Atendimento Consultivo</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Atendimento personalizado, com vagas limitadas por mês</h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-xs sm:text-sm uppercase tracking-wider mb-4">
+              ● Atendimento Consultivo
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+              Atendimento personalizado, com vagas limitadas por mês
+            </h2>
             <p className="text-white/70 text-sm sm:text-base leading-relaxed mb-8">
-              Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço, não um atendimento genérico.
+              Para garantir acompanhamento próximo em cada etapa da sua importação, atendemos um número limitado de
+              novas empresas por mês. Isso significa atenção real da nossa equipe, do diagnóstico ao desembaraço, não um
+              atendimento genérico.
             </p>
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold uppercase tracking-wide text-sm transition-colors">
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold uppercase tracking-wide text-sm transition-colors"
+            >
               Quero garantir meu diagnóstico
             </button>
           </div>
@@ -674,13 +861,21 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10 sm:mb-14">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Segmentos</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Setores em que a Jornada 4S já atua</h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Segmentos
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Setores em que a Jornada 4S já atua
+            </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {PRODUCTS.map((p) => (
               <div key={p.title} className="group relative rounded-2xl overflow-hidden h-80 ring-1 ring-white/10">
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#040D1E] via-[#040D1E]/40 to-transparent" />
                 <div className="absolute bottom-0 p-6">
                   <h3 className="text-xl font-bold text-white mb-1">{p.title}</h3>
@@ -690,7 +885,12 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors"
+            >
+              Quero falar com um especialista!
+            </button>
           </div>
         </div>
       </section>
@@ -699,8 +899,12 @@ function Index() {
       <section className="py-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="mb-10">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Clientes</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que confiam na Jornada 4S</h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Clientes
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Empresas que confiam na Jornada 4S
+            </h2>
           </div>
           <div
             className="relative overflow-hidden"
@@ -736,9 +940,16 @@ function Index() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
             <div>
-              <span className="inline-block text-red-400 font-semibold text-sm uppercase tracking-wider mb-3">● Fora do nosso escopo</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Confira os produtos que <span className="text-red-400">não fazem parte da nossa assessoria.</span></h2>
-              <p className="text-white/60 text-sm sm:text-base">Atendemos exclusivamente empresas com CNPJ ativo. Por questões de marca, regulação e risco fiscal, os itens abaixo estão fora do nosso escopo de atuação.</p>
+              <span className="inline-block text-red-400 font-semibold text-sm uppercase tracking-wider mb-3">
+                ● Fora do nosso escopo
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+                Confira os produtos que <span className="text-red-400">não fazem parte da nossa assessoria.</span>
+              </h2>
+              <p className="text-white/60 text-sm sm:text-base">
+                Atendemos exclusivamente empresas com CNPJ ativo. Por questões de marca, regulação e risco fiscal, os
+                itens abaixo estão fora do nosso escopo de atuação.
+              </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {NOT_ITEMS.map((i) => (
@@ -750,7 +961,12 @@ function Index() {
             </div>
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors"
+            >
+              Quero falar com um especialista!
+            </button>
           </div>
         </div>
       </section>
@@ -759,7 +975,9 @@ function Index() {
       <section id="faq" className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
           <div className="mb-10">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● FAQ</span>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● FAQ
+            </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Perguntas Frequentes</h2>
           </div>
           <div className="space-y-3">
@@ -780,8 +998,12 @@ function Index() {
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">● Depoimentos</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Empresas que já transformaram sua operação de importação com a Jornada 4S.</h2>
+            <span className="inline-block text-[#FF8A5C] font-semibold text-sm uppercase tracking-wider mb-3">
+              ● Depoimentos
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+              Empresas que já transformaram sua operação de importação com a Jornada 4S.
+            </h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {TESTI.map(([n, r, t]) => (
@@ -794,7 +1016,12 @@ function Index() {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <button onClick={scrollToDiagnostico} className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors">Quero falar com um especialista!</button>
+            <button
+              onClick={scrollToDiagnostico}
+              className="bg-gold-grad hover:brightness-110 text-white font-bold px-8 py-4 rounded-full shadow-gold transition-colors"
+            >
+              Quero falar com um especialista!
+            </button>
           </div>
         </div>
       </section>
@@ -817,7 +1044,11 @@ function Index() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
-              <img src="https://importacao4s.lovable.app/assets/logo-footer-CKZfiSSJ.png" alt="Jornada 4S" className="h-12 w-auto mb-4" />
+              <img
+                src="https://importacao4s.lovable.app/assets/logo-footer-CKZfiSSJ.png"
+                alt="Jornada 4S"
+                className="h-12 w-auto mb-4"
+              />
               <p className="text-white/50 text-sm">Assessoria completa em importação da China para o seu negócio.</p>
             </div>
             <div>
@@ -832,8 +1063,16 @@ function Index() {
             <div>
               <h4 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Menu</h4>
               <div className="space-y-2">
-                {[["#diagnostico","Início"],["#about","Quem somos"],["#diferenciais","Diferenciais"],["#servicos","Serviços"],["#contact","Contato"]].map(([h,l]) => (
-                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF8A5C] text-sm">{l}</a>
+                {[
+                  ["#diagnostico", "Início"],
+                  ["#about", "Quem somos"],
+                  ["#diferenciais", "Diferenciais"],
+                  ["#servicos", "Serviços"],
+                  ["#contact", "Contato"],
+                ].map(([h, l]) => (
+                  <a key={h} href={h} className="block text-white/60 hover:text-[#FF8A5C] text-sm">
+                    {l}
+                  </a>
                 ))}
               </div>
             </div>
@@ -848,18 +1087,31 @@ function Index() {
       {modalOpen && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-[#040D1E]/70 p-4"
-          onClick={(e) => { if (e.target === e.currentTarget) closeLead(); }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLead();
+          }}
         >
           <div className="bg-[#0A1226] border border-white/10 text-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative">
-            <button onClick={closeLead} className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl leading-none">×</button>
+            <button
+              onClick={closeLead}
+              className="absolute top-4 right-4 text-white/60 hover:text-white text-2xl leading-none"
+            >
+              ×
+            </button>
             <h3 className="text-2xl font-bold mb-1 text-white">Agende seu diagnóstico gratuito</h3>
-            <p className="text-sm text-white/60 mb-5">Preencha os dados abaixo e nossa equipe entrará em contato em até 1 dia útil.</p>
+            <p className="text-sm text-white/60 mb-5">
+              Preencha os dados abaixo e nossa equipe entrará em contato em até 1 dia útil.
+            </p>
             <form onSubmit={onModalSubmit} className="space-y-4">
               <Field label="Nome" name="nome" required />
               <Field label="Nome da empresa" name="empresa" placeholder="Nome da empresa" required />
               <Field label="E-mail" name="email" type="email" required />
               <Field label="Telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required />
-              <Field label="Site ou Instagram da empresa" name="instagram" placeholder="@suaempresa ou seusite.com.br" />
+              <Field
+                label="Site ou Instagram da empresa"
+                name="instagram"
+                placeholder="@suaempresa ou seusite.com.br"
+              />
               <div>
                 <Label>Você possui CNPJ?</Label>
                 <DarkSelect name="cnpj" required>
@@ -872,7 +1124,9 @@ function Index() {
                 <Label>Qual área representa melhor o tipo de fornecedor que você procura?</Label>
                 <DarkSelect name="area_fornecedor" required>
                   <option value="">Selecione uma área</option>
-                  <option value="Insumos e Matéria-prima para a indústria">Insumos e Matéria-prima para a indústria</option>
+                  <option value="Insumos e Matéria-prima para a indústria">
+                    Insumos e Matéria-prima para a indústria
+                  </option>
                   <option value="Máquinas e Equipamentos">Máquinas e Equipamentos</option>
                   <option value="Eletrônicos e Tecnologia">Eletrônicos e Tecnologia</option>
                   <option value="Itens para Varejo">Itens para Varejo</option>
@@ -888,11 +1142,17 @@ function Index() {
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
-              <button type="submit" disabled={modalLoading} className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-full shadow-gold transition-colors">
+              <button
+                type="submit"
+                disabled={modalLoading}
+                className="w-full bg-gold-grad hover:brightness-110 disabled:opacity-60 text-white font-bold py-4 rounded-full shadow-gold transition-colors"
+              >
                 {modalLoading ? "Enviando..." : "QUERO MEU DIAGNÓSTICO"}
               </button>
               {modalStatus.kind !== "idle" && (
-                <p className={`text-sm text-center ${modalStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>{modalStatus.text}</p>
+                <p className={`text-sm text-center ${modalStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>
+                  {modalStatus.text}
+                </p>
               )}
             </form>
           </div>
@@ -913,8 +1173,18 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 function Field({
-  label, name, type = "text", placeholder, required,
-}: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
+  label,
+  name,
+  type = "text",
+  placeholder,
+  required,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  placeholder?: string;
+  required?: boolean;
+}) {
   return (
     <div>
       <label className="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wide">
@@ -932,9 +1202,7 @@ function Field({
   );
 }
 
-function DarkSelect({
-  name, required, children,
-}: { name: string; required?: boolean; children: React.ReactNode }) {
+function DarkSelect({ name, required, children }: { name: string; required?: boolean; children: React.ReactNode }) {
   return (
     <select
       name={name}
@@ -978,10 +1246,8 @@ function ClientVideosCarousel() {
       <div
         className="relative overflow-hidden"
         style={{
-          maskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
         <div className={`flex gap-5 w-max animate-marquee-x ${playingIndex !== null ? "is-paused" : ""}`}>
@@ -993,7 +1259,9 @@ function ClientVideosCarousel() {
                 className="group relative shrink-0 w-[240px] sm:w-[260px] aspect-[9/16] bg-[#040D1E] rounded-2xl overflow-hidden border border-white/10 shadow-lg"
               >
                 <video
-                  ref={(el) => { videoRefs.current[i] = el; }}
+                  ref={(el) => {
+                    videoRefs.current[i] = el;
+                  }}
                   src={src}
                   muted
                   loop
