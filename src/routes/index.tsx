@@ -646,6 +646,17 @@ function Index() {
                   {inlineStatus.text}
                 </p>
               )}
+              {inlineGuide && (
+                <a
+                  href={guiaPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Guia-do-Importador-Iniciante-4S.pdf"
+                  className="block w-full text-center bg-gold-grad hover:brightness-110 text-white font-bold py-3 rounded-full shadow-gold uppercase tracking-wide text-xs"
+                >
+                  Baixar o Guia do Importador Iniciante (PDF)
+                </a>
+              )}
               <p className="text-white/30 text-xs text-center flex items-center justify-center gap-1.5">
                 🔒 Seus dados estão protegidos. Sem spam.
               </p>
@@ -1182,6 +1193,17 @@ function Index() {
                 <p className={`text-sm text-center ${modalStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>
                   {modalStatus.text}
                 </p>
+              )}
+              {modalGuide && (
+                <a
+                  href={guiaPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Guia-do-Importador-Iniciante-4S.pdf"
+                  className="block w-full text-center bg-gold-grad hover:brightness-110 text-white font-bold py-3 rounded-full shadow-gold uppercase tracking-wide text-xs"
+                >
+                  Baixar o Guia do Importador Iniciante (PDF)
+                </a>
               )}
             </form>
           </div>
