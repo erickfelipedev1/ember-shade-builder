@@ -271,6 +271,10 @@ function FloatingWhatsApp() {
 
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 
+const LOW_TIERS = ["Ainda não tenho faturamento", "Até 30 mil", "30 - 50 mil", "50 - 75 mil"];
+const NOT_QUALIFIED_TEXT =
+  "Obrigado pelo seu interesse! No momento, o seu perfil de investimento não corresponde ao perfil que a Jornada 4S está buscando. Para te ajudar a dar os primeiros passos, preparamos um material completo:";
+
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
