@@ -605,9 +605,9 @@ function Index() {
                 <DarkSelect name="faixa_investimento" required>
                   <option value="">Selecione uma faixa</option>
                   <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
-                  <option value="Até R$30.000">Até R$30.000</option>
-                  <option value="Entre R$30.000 e R$50.000">Entre R$30.000 e R$50.000</option>
-                  <option value="Entre R$50.000 e R$75.000">Entre R$50.000 e R$75.000</option>
+                  <option value="Até 30.000">Até 30 mil</option>
+                  <option value="Entre R$30.000 e R$50.000">30 e 50 mil</option>
+                  <option value="Entre R$50.000 e R$75.000">50 e 75 mil</option>
                   <option value="75 - 100 mil">75 - 100 mil</option>
                   <option value="100 - 200 mil">100 - 200 mil</option>
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
