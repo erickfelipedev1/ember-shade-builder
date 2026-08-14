@@ -623,14 +623,23 @@ function Index() {
                 </DarkSelect>
               </div>
               <div>
-                <Label>Qual o valor que pretende investir?</Label>
-                <DarkSelect name="faixa_investimento" required>
-                  <option value="">Selecione uma faixa</option>
-                  <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
-                  <option value="Até 30 mil">Até 30 mil</option>
-                  <option value="30 - 50 mil">30 - 50 mil</option>
-                  <option value="50 - 75 mil">50 - 75 mil</option>
-                  <option value="75 - 100 mil">75 - 100 mil</option>
+                 <Label>Qual o faturamento mensal da sua empresa?</Label>
+                 <DarkSelect name="faturamento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
+                   <option value="Até 30 mil">Até 30 mil</option>
+                   <option value="30 - 50 mil">30 - 50 mil</option>
+                   <option value="50 - 75 mil">50 - 75 mil</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
+                 </DarkSelect>
+               </div>
+               <div>
+                 <Label>Qual o valor que pretende investir?</Label>
+                 <DarkSelect name="faixa_investimento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
                   <option value="100 - 200 mil">100 - 200 mil</option>
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
@@ -1171,14 +1180,23 @@ function Index() {
                 </DarkSelect>
               </div>
               <div>
-                <Label>Qual o valor que pretende investir na importação?</Label>
-                <DarkSelect name="faixa_investimento" required>
-                  <option value="">Selecione uma faixa</option>
-                  <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
-                  <option value="Até 30 mil">Até 30 mil</option>
-                  <option value="30 - 50 mil">30 - 50 mil</option>
-                  <option value="50 - 75 mil">50 - 75 mil</option>
-                  <option value="75 - 100 mil">75 - 100 mil</option>
+                 <Label>Qual o faturamento mensal da sua empresa?</Label>
+                 <DarkSelect name="faturamento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
+                   <option value="Até 30 mil">Até 30 mil</option>
+                   <option value="30 - 50 mil">30 - 50 mil</option>
+                   <option value="50 - 75 mil">50 - 75 mil</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
+                 </DarkSelect>
+               </div>
+               <div>
+                 <Label>Qual o valor que pretende investir na importação?</Label>
+                 <DarkSelect name="faixa_investimento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
                   <option value="100 - 200 mil">100 - 200 mil</option>
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
