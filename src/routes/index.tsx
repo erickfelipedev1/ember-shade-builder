@@ -299,6 +299,7 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean, form
     contact_possuir_cnpj: fd.get("cnpj")?.toString().trim() || "",
     contact_area_fornecedor: fd.get("area_fornecedor")?.toString().trim() || "",
     contact_valor: fd.get("faixa_investimento"),
+    contact_faturamento: fd.get("faturamento")?.toString() || "",
     origem: "site-4s-comex-assessoria",
     enviado_em: new Date().toISOString(),
     ...getUTMs(),
@@ -329,6 +330,7 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean, form
     lead_possui_cnpj: payload.contact_possuir_cnpj,
     lead_area_fornecedor: payload.contact_area_fornecedor,
     lead_faixa_investimento: payload.contact_valor,
+    lead_faturamento: payload.contact_faturamento,
     origem: payload.origem,
     utm_source: payload.utm_source,
     utm_medium: payload.utm_medium,
@@ -378,8 +380,8 @@ function Index() {
     setInlineLoading(true);
     try {
       await submitLead(form, false, "inline");
-      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
-      if (LOW_TIERS.includes(faixa)) {
+      const faturamento = new FormData(form).get("faturamento")?.toString() || "";
+      if (LOW_TIERS.includes(faturamento)) {
         setInlineGuide(true);
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
@@ -406,8 +408,8 @@ function Index() {
     setModalLoading(true);
     try {
       await submitLead(form, true, "modal");
-      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
-      const lowTier = LOW_TIERS.includes(faixa);
+      const faturamento = new FormData(form).get("faturamento")?.toString() || "";
+      const lowTier = LOW_TIERS.includes(faturamento);
       setModalGuide(lowTier);
       setModalStatus({
         kind: "ok",
@@ -623,14 +625,23 @@ function Index() {
                 </DarkSelect>
               </div>
               <div>
-                <Label>Qual o valor que pretende investir?</Label>
-                <DarkSelect name="faixa_investimento" required>
-                  <option value="">Selecione uma faixa</option>
-                  <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
-                  <option value="Até 30 mil">Até 30 mil</option>
-                  <option value="30 - 50 mil">30 - 50 mil</option>
-                  <option value="50 - 75 mil">50 - 75 mil</option>
-                  <option value="75 - 100 mil">75 - 100 mil</option>
+                 <Label>Qual o faturamento mensal da sua empresa?</Label>
+                 <DarkSelect name="faturamento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
+                   <option value="Até 30 mil">Até 30 mil</option>
+                   <option value="30 - 50 mil">30 - 50 mil</option>
+                   <option value="50 - 75 mil">50 - 75 mil</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
+                 </DarkSelect>
+               </div>
+               <div>
+                 <Label>Qual o valor que pretende investir?</Label>
+                 <DarkSelect name="faixa_investimento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
                   <option value="100 - 200 mil">100 - 200 mil</option>
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
@@ -1171,14 +1182,23 @@ function Index() {
                 </DarkSelect>
               </div>
               <div>
-                <Label>Qual o valor que pretende investir na importação?</Label>
-                <DarkSelect name="faixa_investimento" required>
-                  <option value="">Selecione uma faixa</option>
-                  <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
-                  <option value="Até 30 mil">Até 30 mil</option>
-                  <option value="30 - 50 mil">30 - 50 mil</option>
-                  <option value="50 - 75 mil">50 - 75 mil</option>
-                  <option value="75 - 100 mil">75 - 100 mil</option>
+                 <Label>Qual o faturamento mensal da sua empresa?</Label>
+                 <DarkSelect name="faturamento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
+                   <option value="Até 30 mil">Até 30 mil</option>
+                   <option value="30 - 50 mil">30 - 50 mil</option>
+                   <option value="50 - 75 mil">50 - 75 mil</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
+                 </DarkSelect>
+               </div>
+               <div>
+                 <Label>Qual o valor que pretende investir na importação?</Label>
+                 <DarkSelect name="faixa_investimento" required>
+                   <option value="">Selecione uma faixa</option>
+                   <option value="75 - 100 mil">75 - 100 mil</option>
                   <option value="100 - 200 mil">100 - 200 mil</option>
                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
