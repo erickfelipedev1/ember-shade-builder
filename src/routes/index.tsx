@@ -9,6 +9,7 @@ import video6 from "@/assets/videos/video6.mp4.asset.json";
 import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
+import guiaPdf from "@/assets/guia-importador-iniciante-4s.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -271,6 +272,10 @@ function FloatingWhatsApp() {
 
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 
+const LOW_TIERS = ["Ainda não tenho faturamento", "Até 30 mil", "30 - 50 mil", "50 - 75 mil"];
+const NOT_QUALIFIED_TEXT =
+  "Obrigado pelo seu interesse! No momento, o seu perfil de investimento não corresponde ao perfil que a Jornada 4S está buscando. Para te ajudar a dar os primeiros passos, preparamos um material completo:";
+
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[];
@@ -346,6 +351,8 @@ function Index() {
   const [modalStatus, setModalStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
   const [inlineLoading, setInlineLoading] = useState(false);
   const [modalLoading, setModalLoading] = useState(false);
+  const [inlineGuide, setInlineGuide] = useState(false);
+  const [modalGuide, setModalGuide] = useState(false);
 
   const openLead = () => setModalOpen(true);
   const closeLead = () => setModalOpen(false);
@@ -371,9 +378,17 @@ function Index() {
     setInlineLoading(true);
     try {
       await submitLead(form, false, "inline");
-      setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
+      if (LOW_TIERS.includes(faixa)) {
+        setInlineGuide(true);
+        setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
+      } else {
+        setInlineGuide(false);
+        setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      }
       form.reset();
     } catch {
+      setInlineGuide(false);
       setInlineStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
     } finally {
       setInlineLoading(false);
@@ -391,10 +406,17 @@ function Index() {
     setModalLoading(true);
     try {
       await submitLead(form, true, "modal");
-      setModalStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
+      const lowTier = LOW_TIERS.includes(faixa);
+      setModalGuide(lowTier);
+      setModalStatus({
+        kind: "ok",
+        text: lowTier ? NOT_QUALIFIED_TEXT : "Recebemos seu contato! Nossa equipe falará com você em breve.",
+      });
       form.reset();
-      setTimeout(() => setModalOpen(false), 1800);
+      if (!lowTier) setTimeout(() => setModalOpen(false), 1800);
     } catch {
+      setModalGuide(false);
       setModalStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
     } finally {
       setModalLoading(false);
@@ -624,6 +646,17 @@ function Index() {
                 <p className={`text-sm text-center ${inlineStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>
                   {inlineStatus.text}
                 </p>
+              )}
+              {inlineGuide && (
+                <a
+                  href={guiaPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Guia-do-Importador-Iniciante-4S.pdf"
+                  className="block w-full text-center bg-gold-grad hover:brightness-110 text-white font-bold py-3 rounded-full shadow-gold uppercase tracking-wide text-xs"
+                >
+                  Baixar o Guia do Importador Iniciante (PDF)
+                </a>
               )}
               <p className="text-white/30 text-xs text-center flex items-center justify-center gap-1.5">
                 🔒 Seus dados estão protegidos. Sem spam.
@@ -1161,6 +1194,17 @@ function Index() {
                 <p className={`text-sm text-center ${modalStatus.kind === "ok" ? "text-green-400" : "text-red-400"}`}>
                   {modalStatus.text}
                 </p>
+              )}
+              {modalGuide && (
+                <a
+                  href={guiaPdf.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Guia-do-Importador-Iniciante-4S.pdf"
+                  className="block w-full text-center bg-gold-grad hover:brightness-110 text-white font-bold py-3 rounded-full shadow-gold uppercase tracking-wide text-xs"
+                >
+                  Baixar o Guia do Importador Iniciante (PDF)
+                </a>
               )}
             </form>
           </div>
