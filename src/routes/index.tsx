@@ -350,6 +350,8 @@ function Index() {
   const [modalStatus, setModalStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
   const [inlineLoading, setInlineLoading] = useState(false);
   const [modalLoading, setModalLoading] = useState(false);
+  const [inlineGuide, setInlineGuide] = useState(false);
+  const [modalGuide, setModalGuide] = useState(false);
 
   const openLead = () => setModalOpen(true);
   const closeLead = () => setModalOpen(false);
@@ -375,9 +377,17 @@ function Index() {
     setInlineLoading(true);
     try {
       await submitLead(form, false, "inline");
-      setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
+      if (LOW_TIERS.includes(faixa)) {
+        setInlineGuide(true);
+        setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
+      } else {
+        setInlineGuide(false);
+        setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      }
       form.reset();
     } catch {
+      setInlineGuide(false);
       setInlineStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
     } finally {
       setInlineLoading(false);
@@ -395,10 +405,17 @@ function Index() {
     setModalLoading(true);
     try {
       await submitLead(form, true, "modal");
-      setModalStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+      const faixa = new FormData(form).get("faixa_investimento")?.toString() || "";
+      const lowTier = LOW_TIERS.includes(faixa);
+      setModalGuide(lowTier);
+      setModalStatus({
+        kind: "ok",
+        text: lowTier ? NOT_QUALIFIED_TEXT : "Recebemos seu contato! Nossa equipe falará com você em breve.",
+      });
       form.reset();
-      setTimeout(() => setModalOpen(false), 1800);
+      if (!lowTier) setTimeout(() => setModalOpen(false), 1800);
     } catch {
+      setModalGuide(false);
       setModalStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
     } finally {
       setModalLoading(false);
