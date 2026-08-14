@@ -9,6 +9,7 @@ import video6 from "@/assets/videos/video6.mp4.asset.json";
 import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
+import guiaPdf from "@/assets/guia-importador-iniciante-4s.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
