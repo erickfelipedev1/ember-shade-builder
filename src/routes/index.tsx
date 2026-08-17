@@ -380,10 +380,10 @@ function Index() {
     }
     setInlineLoading(true);
     try {
-      await submitLead(form, false, "inline");
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
       const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
+      if (!lowTier) await submitLead(form, false, "inline");
       if (lowTier) {
         setInlineGuide(true);
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
@@ -410,10 +410,10 @@ function Index() {
     }
     setModalLoading(true);
     try {
-      await submitLead(form, true, "modal");
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
       const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
+      if (!lowTier) await submitLead(form, true, "modal");
       setModalGuide(lowTier);
       setModalStatus({
         kind: "ok",
