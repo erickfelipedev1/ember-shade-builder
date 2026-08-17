@@ -273,6 +273,7 @@ function FloatingWhatsApp() {
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 
 const LOW_TIERS = ["Ainda não tenho faturamento", "Até 30 mil", "30 - 50 mil", "50 - 75 mil"];
+const LOW_INVEST_TIERS = ["Não tenho investimento", "Até 30 mil", "Até 50 mil"];
 const NOT_QUALIFIED_TEXT =
   "Obrigado pelo seu interesse! No momento, o seu perfil de investimento não corresponde ao perfil que a Jornada 4S está buscando. Para te ajudar a dar os primeiros passos, preparamos um material completo:";
 
@@ -381,7 +382,9 @@ function Index() {
     try {
       await submitLead(form, false, "inline");
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
-      if (LOW_TIERS.includes(faturamento)) {
+      const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
+      const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
+      if (lowTier) {
         setInlineGuide(true);
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
@@ -409,7 +412,8 @@ function Index() {
     try {
       await submitLead(form, true, "modal");
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
-      const lowTier = LOW_TIERS.includes(faturamento);
+      const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
+      const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
       setModalGuide(lowTier);
       setModalStatus({
         kind: "ok",
