@@ -640,10 +640,13 @@ function Index() {
                <div>
                  <Label>Qual o valor que pretende investir?</Label>
                  <DarkSelect name="faixa_investimento" required>
-                   <option value="">Selecione uma faixa</option>
-                   <option value="75 - 100 mil">75 - 100 mil</option>
-                  <option value="100 - 200 mil">100 - 200 mil</option>
-                  <option value="Acima de 200 mil">Acima de 200 mil</option>
+                    <option value="">Selecione uma faixa</option>
+                    <option value="Não tenho investimento">Não tenho investimento</option>
+                    <option value="Até 30 mil">Até 30 mil</option>
+                    <option value="Até 50 mil">Até 50 mil</option>
+                    <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
               <button
@@ -1197,10 +1200,13 @@ function Index() {
                <div>
                  <Label>Qual o valor que pretende investir na importação?</Label>
                  <DarkSelect name="faixa_investimento" required>
-                   <option value="">Selecione uma faixa</option>
-                   <option value="75 - 100 mil">75 - 100 mil</option>
-                  <option value="100 - 200 mil">100 - 200 mil</option>
-                  <option value="Acima de 200 mil">Acima de 200 mil</option>
+                    <option value="">Selecione uma faixa</option>
+                    <option value="Não tenho investimento">Não tenho investimento</option>
+                    <option value="Até 30 mil">Até 30 mil</option>
+                    <option value="Até 50 mil">Até 50 mil</option>
+                    <option value="75 - 100 mil">75 - 100 mil</option>
+                   <option value="100 - 200 mil">100 - 200 mil</option>
+                   <option value="Acima de 200 mil">Acima de 200 mil</option>
                 </DarkSelect>
               </div>
               <button
