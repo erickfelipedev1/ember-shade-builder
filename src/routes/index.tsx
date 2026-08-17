@@ -272,7 +272,7 @@ function FloatingWhatsApp() {
 
 type LeadStatus = { kind: "idle" | "ok" | "err"; text: string };
 
-const LOW_TIERS = ["Ainda não tenho faturamento", "Até 30 mil", "30 - 50 mil", "50 - 75 mil"];
+const LOW_TIERS = ["Ainda não tenho faturamento", "Até 30 mil", "30 - 50 mil"];
 const LOW_INVEST_TIERS = ["Não tenho investimento", "Até 30 mil", "Até 50 mil"];
 const NOT_QUALIFIED_TEXT =
   "Obrigado pelo seu interesse! No momento, o seu perfil de investimento não corresponde ao perfil que a Jornada 4S está buscando. Para te ajudar a dar os primeiros passos, preparamos um material completo:";
@@ -635,7 +635,6 @@ function Index() {
                    <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
                    <option value="Até 30 mil">Até 30 mil</option>
                    <option value="30 - 50 mil">30 - 50 mil</option>
-                   <option value="50 - 75 mil">50 - 75 mil</option>
                    <option value="75 - 100 mil">75 - 100 mil</option>
                    <option value="100 - 200 mil">100 - 200 mil</option>
                    <option value="Acima de 200 mil">Acima de 200 mil</option>
@@ -1195,7 +1194,6 @@ function Index() {
                    <option value="Ainda não tenho faturamento">Ainda não tenho faturamento</option>
                    <option value="Até 30 mil">Até 30 mil</option>
                    <option value="30 - 50 mil">30 - 50 mil</option>
-                   <option value="50 - 75 mil">50 - 75 mil</option>
                    <option value="75 - 100 mil">75 - 100 mil</option>
                    <option value="100 - 200 mil">100 - 200 mil</option>
                    <option value="Acima de 200 mil">Acima de 200 mil</option>
