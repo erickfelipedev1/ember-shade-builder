@@ -10,6 +10,15 @@ import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
 import guiaPdf from "@/assets/guia-importador-iniciante-4s.pdf.asset.json";
+import imgSourcing from "@/assets/images/service-sourcing.jpg.asset.json";
+import imgConsulting from "@/assets/images/service-consulting.jpg.asset.json";
+import imgLogistics from "@/assets/images/service-logistics.jpg.asset.json";
+import imgCustoms from "@/assets/images/service-customs.jpg.asset.json";
+import imgKitchen from "@/assets/images/product-kitchen.jpg.asset.json";
+import imgMachinery from "@/assets/images/product-machinery.jpg.asset.json";
+import imgGym from "@/assets/images/product-gym.jpg.asset.json";
+import imgAutoparts from "@/assets/images/product-autoparts.jpg.asset.json";
+import logo4s from "@/assets/logo-4s.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -101,22 +110,22 @@ const TESTI: [string, string, string][] = [
 
 const SERVICES = [
   {
-    img: "https://importacao4s.lovable.app/assets/service-sourcing-B4cy0-UW.jpg",
+    img: imgSourcing.url,
     title: "Sourcing Internacional",
     desc: "Mapeamos e auditamos fornecedores na China para o melhor equilíbrio entre preço, qualidade e prazo.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/service-consulting-gnfKYHXs.jpg",
+    img: imgConsulting.url,
     title: "Gestão da Importação",
     desc: "Negociação, contratos, documentação e comunicação com fornecedores conduzidos pela nossa equipe.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/service-logistics-DW_tWhk-.jpg",
+    img: imgLogistics.url,
     title: "Logística de Ponta a Ponta",
     desc: "Follow-up de produção, transporte marítimo e coordenação com despachantes até a entrega no Brasil.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/service-customs-3iHe8vBX.jpg",
+    img: imgCustoms.url,
     title: "Seguro & Conformidade",
     desc: "Seguro de carga internacional e adequação fiscal e aduaneira para reduzir riscos da operação.",
   },
@@ -139,22 +148,22 @@ const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
 
 const PRODUCTS = [
   {
-    img: "https://importacao4s.lovable.app/assets/product-kitchen-B92Fsfwx.jpg",
+    img: imgKitchen.url,
     title: "Itens de Cozinha",
     desc: "Linha completa de utensílios e acessórios com excelente custo-benefício para o varejo.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/product-machinery-z3ctZ7Ix.jpg",
+    img: imgMachinery.url,
     title: "Maquinários",
     desc: "Equipamentos industriais para empresas que buscam ganho de produtividade.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/product-gym-qz3O5-86.jpg",
+    img: imgGym.url,
     title: "Aparelhos de Academia",
     desc: "Equipamentos fitness com forte demanda e margens atrativas no mercado nacional.",
   },
   {
-    img: "https://importacao4s.lovable.app/assets/product-autoparts-CCAunTiK.jpg",
+    img: imgAutoparts.url,
     title: "Autopeças",
     desc: "Peças e acessórios automotivos, um dos segmentos com maior crescimento na importação da China.",
   },
@@ -1099,7 +1108,7 @@ function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <img
-                src="https://importacao4s.lovable.app/assets/logo-footer-CKZfiSSJ.png"
+                src={logo4s.url}
                 alt="Jornada 4S"
                 className="h-12 w-auto mb-4"
               />
