@@ -10,7 +10,7 @@ import heroVideo from "@/assets/videos/hero-port-aerial.mp4.asset.json";
 import heroPoster from "@/assets/videos/hero-port-aerial-poster.jpg.asset.json";
 import sociosImg from "@/assets/socios-jornada-4s.png.asset.json";
 import guiaPdf from "@/assets/guia-importador-iniciante-4s.pdf.asset.json";
-import imgSourcing from "@/assets/images/service-sourcing.jpg.asset.json";
+import imgSourcing from "@/assets/images/service-sourcing.jpg";
 import imgConsulting from "@/assets/images/service-consulting.jpg.asset.json";
 import imgLogistics from "@/assets/images/service-logistics.jpg.asset.json";
 import imgCustoms from "@/assets/images/service-customs.jpg.asset.json";
@@ -110,7 +110,7 @@ const TESTI: [string, string, string][] = [
 
 const SERVICES = [
   {
-    img: imgSourcing.url,
+    img: imgSourcing,
     title: "Sourcing Internacional",
     desc: "Mapeamos e auditamos fornecedores na China para o melhor equilíbrio entre preço, qualidade e prazo.",
   },
