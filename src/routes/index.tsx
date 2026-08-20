@@ -298,9 +298,9 @@ function pushDataLayer(event: Record<string, unknown>) {
   window.dataLayer.push(event);
 }
 
-async function submitLead(form: HTMLFormElement, includeInstagram: boolean, formLocation: string = "form") {
+function buildLeadPayload(form: HTMLFormElement, includeInstagram: boolean) {
   const fd = new FormData(form);
-  const payload = {
+  return {
     contact_nome: fd.get("nome")?.toString().trim(),
     contact_nome_empresa: fd.get("empresa")?.toString().trim() || "",
     contact_email: fd.get("email")?.toString().trim(),
@@ -314,6 +314,25 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean, form
     enviado_em: new Date().toISOString(),
     ...getUTMs(),
   };
+}
+
+// Backup do lead para o Google Sheets — sempre enviado, mesmo para leads
+// não qualificados (sem CNPJ ou faixa de faturamento/investimento abaixo de 75 mil).
+async function sendToBackup(payload: Record<string, unknown>) {
+  try {
+    await fetch(BACKUP_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    // o backup não deve impedir o fluxo principal
+  }
+}
+
+async function submitLead(form: HTMLFormElement, includeInstagram: boolean, formLocation: string = "form") {
+  const payload = buildLeadPayload(form, includeInstagram);
   const results = await Promise.allSettled([
     fetch(WEBHOOK_URL, {
       method: "POST",
@@ -385,6 +404,8 @@ function Index() {
     const form = e.currentTarget;
     const cnpj = new FormData(form).get("cnpj")?.toString();
     if (cnpj !== "Sim") {
+      // Mesmo sem CNPJ, o lead é registrado no backup do Google Sheets.
+      void sendToBackup(buildLeadPayload(form, false));
       setInlineStatus({ kind: "err", text: "Para prosseguir, é necessário possuir CNPJ." });
       return;
     }
@@ -393,11 +414,13 @@ function Index() {
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
       const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
-      if (!lowTier) await submitLead(form, false, "inline");
       if (lowTier) {
+        // Lead não qualificado: registra no backup do Sheets mas não vai ao webhook.
+        void sendToBackup(buildLeadPayload(form, false));
         setInlineGuide(true);
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
+        await submitLead(form, false, "inline");
         setInlineGuide(false);
         navigate({ to: "/obrigado" });
       }
@@ -415,6 +438,8 @@ function Index() {
     const form = e.currentTarget;
     const cnpj = new FormData(form).get("cnpj")?.toString();
     if (cnpj !== "Sim") {
+      // Mesmo sem CNPJ, o lead é registrado no backup do Google Sheets.
+      void sendToBackup(buildLeadPayload(form, true));
       setModalStatus({ kind: "err", text: "Para prosseguir, é necessário possuir CNPJ." });
       return;
     }
@@ -423,11 +448,14 @@ function Index() {
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
       const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
-      if (!lowTier) await submitLead(form, true, "modal");
-      setModalGuide(lowTier);
       if (lowTier) {
+        // Lead não qualificado: registra no backup do Sheets mas não vai ao webhook.
+        void sendToBackup(buildLeadPayload(form, true));
+        setModalGuide(true);
         setModalStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
+        await submitLead(form, true, "modal");
+        setModalGuide(false);
         setModalStatus({ kind: "ok", text: "Redirecionando..." });
       }
       form.reset();
