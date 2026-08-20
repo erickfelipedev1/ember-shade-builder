@@ -438,6 +438,8 @@ function Index() {
     const form = e.currentTarget;
     const cnpj = new FormData(form).get("cnpj")?.toString();
     if (cnpj !== "Sim") {
+      // Mesmo sem CNPJ, o lead é registrado no backup do Google Sheets.
+      void sendToBackup(buildLeadPayload(form, true));
       setModalStatus({ kind: "err", text: "Para prosseguir, é necessário possuir CNPJ." });
       return;
     }
@@ -446,11 +448,14 @@ function Index() {
       const faturamento = new FormData(form).get("faturamento")?.toString() || "";
       const investimento = new FormData(form).get("faixa_investimento")?.toString() || "";
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
-      if (!lowTier) await submitLead(form, true, "modal");
-      setModalGuide(lowTier);
       if (lowTier) {
+        // Lead não qualificado: registra no backup do Sheets mas não vai ao webhook.
+        void sendToBackup(buildLeadPayload(form, true));
+        setModalGuide(true);
         setModalStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
+        await submitLead(form, true, "modal");
+        setModalGuide(false);
         setModalStatus({ kind: "ok", text: "Redirecionando..." });
       }
       form.reset();
