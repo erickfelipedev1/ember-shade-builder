@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import video1 from "@/assets/videos/video1.mp4.asset.json";
 import video2 from "@/assets/videos/video2.mp4.asset.json";
@@ -357,6 +357,7 @@ const NAV_LINKS: [string, string][] = [
 ];
 
 function Index() {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [inlineStatus, setInlineStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
@@ -398,7 +399,7 @@ function Index() {
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
         setInlineGuide(false);
-        setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+        navigate({ to: "/obrigado" });
       }
       form.reset();
     } catch {
@@ -424,12 +425,18 @@ function Index() {
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
       if (!lowTier) await submitLead(form, true, "modal");
       setModalGuide(lowTier);
-      setModalStatus({
-        kind: "ok",
-        text: lowTier ? NOT_QUALIFIED_TEXT : "Recebemos seu contato! Nossa equipe falará com você em breve.",
-      });
+      if (lowTier) {
+        setModalStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
+      } else {
+        setModalStatus({ kind: "ok", text: "Redirecionando..." });
+      }
       form.reset();
-      if (!lowTier) setTimeout(() => setModalOpen(false), 1800);
+      if (!lowTier) {
+        setTimeout(() => {
+          setModalOpen(false);
+          navigate({ to: "/obrigado" });
+        }, 800);
+      }
     } catch {
       setModalGuide(false);
       setModalStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
