@@ -357,6 +357,7 @@ const NAV_LINKS: [string, string][] = [
 ];
 
 function Index() {
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
   const [inlineStatus, setInlineStatus] = useState<LeadStatus>({ kind: "idle", text: "" });
