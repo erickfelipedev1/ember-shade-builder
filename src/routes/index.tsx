@@ -399,7 +399,7 @@ function Index() {
         setInlineStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
       } else {
         setInlineGuide(false);
-        setInlineStatus({ kind: "ok", text: "Recebemos seu contato! Nossa equipe falará com você em breve." });
+        navigate({ to: "/obrigado" });
       }
       form.reset();
     } catch {
