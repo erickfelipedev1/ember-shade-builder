@@ -298,9 +298,9 @@ function pushDataLayer(event: Record<string, unknown>) {
   window.dataLayer.push(event);
 }
 
-async function submitLead(form: HTMLFormElement, includeInstagram: boolean, formLocation: string = "form") {
+function buildLeadPayload(form: HTMLFormElement, includeInstagram: boolean) {
   const fd = new FormData(form);
-  const payload = {
+  return {
     contact_nome: fd.get("nome")?.toString().trim(),
     contact_nome_empresa: fd.get("empresa")?.toString().trim() || "",
     contact_email: fd.get("email")?.toString().trim(),
@@ -314,6 +314,25 @@ async function submitLead(form: HTMLFormElement, includeInstagram: boolean, form
     enviado_em: new Date().toISOString(),
     ...getUTMs(),
   };
+}
+
+// Backup do lead para o Google Sheets — sempre enviado, mesmo para leads
+// não qualificados (sem CNPJ ou faixa de faturamento/investimento abaixo de 75 mil).
+async function sendToBackup(payload: Record<string, unknown>) {
+  try {
+    await fetch(BACKUP_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  } catch {
+    // o backup não deve impedir o fluxo principal
+  }
+}
+
+async function submitLead(form: HTMLFormElement, includeInstagram: boolean, formLocation: string = "form") {
+  const payload = buildLeadPayload(form, includeInstagram);
   const results = await Promise.allSettled([
     fetch(WEBHOOK_URL, {
       method: "POST",
