@@ -1,5 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect } from "react";
 import logo4s from "@/assets/logo-4s.png.asset.json";
+
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
@@ -30,6 +37,10 @@ export const Route = createFileRoute("/obrigado")({
 });
 
 function ObrigadoPage() {
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "lead_gerado" });
+  }, []);
   return (
     <main className="min-h-screen bg-[#040D1E] text-white flex flex-col items-center justify-center px-4 py-16">
       <img
