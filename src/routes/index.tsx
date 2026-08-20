@@ -425,12 +425,18 @@ function Index() {
       const lowTier = LOW_TIERS.includes(faturamento) || LOW_INVEST_TIERS.includes(investimento);
       if (!lowTier) await submitLead(form, true, "modal");
       setModalGuide(lowTier);
-      setModalStatus({
-        kind: "ok",
-        text: lowTier ? NOT_QUALIFIED_TEXT : "Recebemos seu contato! Nossa equipe falará com você em breve.",
-      });
+      if (lowTier) {
+        setModalStatus({ kind: "ok", text: NOT_QUALIFIED_TEXT });
+      } else {
+        setModalStatus({ kind: "ok", text: "Redirecionando..." });
+      }
       form.reset();
-      if (!lowTier) setTimeout(() => setModalOpen(false), 1800);
+      if (!lowTier) {
+        setTimeout(() => {
+          setModalOpen(false);
+          navigate({ to: "/obrigado" });
+        }, 800);
+      }
     } catch {
       setModalGuide(false);
       setModalStatus({ kind: "err", text: "Erro ao enviar. Tente novamente." });
