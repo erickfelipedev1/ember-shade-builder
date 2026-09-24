@@ -19,6 +19,7 @@ import imgMachinery from "@/assets/images/product-machinery.jpg.asset.json";
 import imgGym from "@/assets/images/product-gym.jpg.asset.json";
 import imgAutoparts from "@/assets/images/product-autoparts.jpg.asset.json";
 import logo4s from "@/assets/logo-4s.png.asset.json";
+import logoW2Academia from "@/assets/clients/W2ACADEMIA.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -142,7 +143,7 @@ const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
   { name: "Petz", logo: "/logo-petz.png" },
   { name: "Maxfix", logo: "/logo-maxfix.png" },
   { name: "Deceuninck", logo: "/logo-deceuninck.png", className: "h-10 sm:h-12" },
-  { name: "Ômega Importadora", logo: "/logo-omega-importadora.png", className: "h-10 sm:h-12" },
+  { name: "W2 Academia", logo: logoW2Academia.url, className: "h-10 sm:h-12" },
   { name: "Eletromidia", logo: "/logo-eletromidia.png" },
 ];
 
