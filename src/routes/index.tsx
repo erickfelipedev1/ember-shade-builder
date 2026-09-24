@@ -36,7 +36,30 @@ export const Route = createFileRoute("/")({
         content:
           "Assessoria completa em importação da China: sourcing, gestão, logística, seguro e desembaraço aduaneiro para empresas que querem importar com segurança e previsibilidade.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://lp.ogruponow.com.br/" },
+      {
+        property: "og:image",
+        content:
+          "https://lp.ogruponow.com.br/__l5e/assets-v1/77da87d1-3283-4d88-8749-7ed5e04a3fb7/jornada-4s-social-preview.jpg",
+      },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Página inicial da Jornada 4S" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Jornada 4S | Assessoria de Importação da China" },
+      {
+        name: "twitter:description",
+        content:
+          "Assessoria completa em importação da China: sourcing, gestão, logística, seguro e desembaraço aduaneiro para empresas que querem importar com segurança e previsibilidade.",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://lp.ogruponow.com.br/__l5e/assets-v1/77da87d1-3283-4d88-8749-7ed5e04a3fb7/jornada-4s-social-preview.jpg",
+      },
     ],
+    links: [{ rel: "canonical", href: "https://lp.ogruponow.com.br/" }],
   }),
   component: Index,
 });

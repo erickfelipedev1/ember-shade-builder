@@ -83,12 +83,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Jornada 4S | Assessoria de Importação da China" },
       { property: "og:description", content: "Assessoria completa em importação da China: sourcing, gestão, logística, seguro e desembaraço aduaneiro para empresas que querem importar com segurança e previsibilidade." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Jornada 4S | Assessoria de Importação da China" },
       { name: "twitter:description", content: "Assessoria completa em importação da China: sourcing, gestão, logística, seguro e desembaraço aduaneiro para empresas que querem importar com segurança e previsibilidade." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4d448558-7986-4947-b964-3f06b7ef85bc" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/4d448558-7986-4947-b964-3f06b7ef85bc" },
     ],
     links: [
       {
