@@ -143,7 +143,7 @@ const CLIENTS: { name: string; logo: string | null; className?: string }[] = [
   { name: "Petz", logo: "/logo-petz.png" },
   { name: "Maxfix", logo: "/logo-maxfix.png" },
   { name: "Deceuninck", logo: "/logo-deceuninck.png", className: "h-10 sm:h-12" },
-  { name: "W2 Academia", logo: logoW2Academia.url, className: "h-10 sm:h-12" },
+  { name: "W2 Academia", logo: logoW2Academia.url, className: "h-16 sm:h-20 scale-150" },
   { name: "Eletromidia", logo: "/logo-eletromidia.png" },
 ];
 
